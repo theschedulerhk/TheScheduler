@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="恒基地產紅磡旗艦項目 Midtown South 第五期「Chester 首匯」正式登場。提供 241 伙優質單位，戶型由一房至四房，鄰近紅磡、何文田及黃埔站。立即預約參觀。">
+    <meta name="keywords" content="Chester, 首匯, Hong Kong property, 紅磡新盤, new development Hong Kong">
+    <title>Chester首匯 - The Scheduler</title>
+    <link href="assets/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        body { padding-bottom: 100px; background-color: rgba(50, 50, 50, 1.0); color: #333; line-height: 1.6; }
+
+        /* --- FADING NAVBAR --- */
+        .navbar {
+            position: fixed; top: 0; width: 100%; z-index: 2000;
+            
+        }
+
+        .navbar-brand {transition: opacity 0.4s ease, visibility 0.4s ease;opacity: 1; visibility: visible;}
+        .nav-bottom{transition: opacity 0.4s ease, visibility 0.4s ease;opacity: 1; visibility: visible;}
+        .navbar-brand.hidden { opacity: 0; visibility: hidden; }
+        .nav-bottom.hidden { opacity: 0; visibility: hidden; }
+
+        /* Navbar Rows */
+        .nav-top {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        /*.nav-bottom {
+            display: flex; justify-content: center; gap: 15px;
+            padding: 10px 5%; flex-wrap: wrap;
+        }*/
+
+        /* Buttons */
+        .lang-switcher {
+             padding: 4px 8px;color: white;
+            cursor: pointer; margin-left: 5px;
+        }
+        
+        .nav-btn {
+            text-decoration: none; color: white; font-size: 15px; font-weight: 100;
+            padding: 6px 12px;
+            transition: 0.2s; background: transparent; font:"Helvetica Neue";
+        }
+        .nav-btn:hover { text-decoration: underline; font-size: 16px; font-weight: 550}
+
+        /* --- HERO & CONTENT --- */
+        /* Container for the video */
+        .hero {
+            position: relative;
+            height: 60vh;
+            overflow: hidden; /* Keeps video from spilling out */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* Makes video cover the background like a photo */
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1; /* Puts video behind text */
+            transform: translate(-50%, -50%);
+            object-fit: cover; /* Ensures video fills area without stretching */
+        }
+
+        /* Dark overlay to make text readable */
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Adjust 0.4 for darkness */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+
+        .booking-section { padding: 60px 5%; max-width: 800px; margin: 0 auto; }
+        .booking-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: 600; font-size: 14px; }
+        .form-group input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+
+        
+        .btn-primary {
+            background: #007bff; color: white; padding: 12px 24px;
+            text-decoration: none; border-radius: 6px; font-weight: bold; border: none; cursor: pointer;
+        }
+
+        .btn-success {
+            background: #007bff; color: white; padding: 12px 24px;
+            text-decoration: none; border-radius: 6px; font-weight: bold; border: none; cursor: pointer;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .nav-bottom { gap: 8px; padding: 8px; }
+            .nav-btn { font-size: 11px; padding: 5px 8px; }
+            .hero { margin-top: 140px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="mainNav" class="navbar" style="background-color:rgba(0, 0, 0, 0.0);">
+        <!-- Row 1: Logo & Language -->
+        <div class="nav-top col-12" >
+            <a id="nav_Logo" class="navbar-brand " >
+              <img src="Chester_logo_w.svg" alt="Chester Logo" style="width:100%;max-width:none;">
+            </a>
+
+            <div id="nav_Btns" class="nav-bottom">
+            
+                <a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a>
+                <a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a>
+                <a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a>
+                <a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a>
+            </div>
+            <div class="lang-switcher ">
+                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
+                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
+                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
+            </div>
+
+        </div>
+        <!-- Row 2: Navigation Buttons -->
+        
+    </header>
+    
+    <div id="mainTextPopup" style="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 20000; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;">
+      <div class="box-container relative flex" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;height:100vh;margin:auto;max-height:650px;padding:40px;max-width:1200px;background:#000000;color:#E1DBCB;z-index: 200000;">
+        <button id="mainTextPopupClose" style="position:absolute;top:0;right:0;background:none;border:none;color:#A15A33;font-size:38px;z-index:2;cursor:pointer;padding:25px;" onclick="hideElement()"><img src="assets/xmark.png" width="33"></button>
+        <script>function hideElement() {
+              var x = document.getElementById("mainTextPopup");
+              x.style.display = "none";
+            }
+        </script>
+        <div class="top-area" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto " style="margin:0 auto 0px auto;width:247px;max-width:60%;"><img src="assets/Chester_logo_w.svg" alt="Chester" width="247" height="auto" style="width:100%;max-width:none;"></div>
+          </div>
+        </div>
+        <div class="inner-content relative z-2 grow" style="flex:1;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size: 0.8em;max-height:65%">
+          <div class="scroll-layer" style="position:relative;width:100%;height:90%;overflow-y:auto;" data-cs-inited="1">
+            <div class="scroll-content" style="padding:0 10px;">
+              <div class="text-center">
+                <div class="mdDisclaimer" >
+        <p>發展項目名稱：首匯<br>
+        發展項目的街道名稱及門牌號數：黃埔街8號*&nbsp;&nbsp;|&nbsp;&nbsp;區域：紅磡&nbsp;&nbsp;|&nbsp;&nbsp;賣方就發展項目指定的互聯網網站的網址： www.thechester.com.hk</p>
+        <p>免責聲明：本網頁並不是發展項目之官方網站網頁。本廣告內的圖片與發展商的樓盤並無任何關係。準買家如欲了解發展項目詳情，請參閱售樓說明書。資料有可能出現售價、現金或其他條件上的改動，或撤回而不經提前通知，並可能受特別條款約束。本宣傳旨在提供更多一手新盤資料及圖片檔案服務只供閱覽；不聲明或保證所提供訊息的準確性和完整性。</p>
+        <p>在撰寫本廣告時，雖已作出合理和謹慎的考慮，對資料的完整和準確性恕不保證、明示或暗示絕對無誤。因使用此資料而直接或間接引致的損失或損毀。本網站恕不負責。本網站內所有內容包括一手新盤資料，僅供參考和借鑒，物業資料，一切以發展商最新公布為準。本頁面所提到房屋面積如無特別標示，均指實用面積。客戶應自行確保資料或，內容的完整性和準確性。所載資料僅供參考，並不構成要約或合約一部份。如有需要，客戶應自行咨詢相關法律及/或專業意見。</p>
+        <p>*此臨時街道名稱及門牌號數有待發展項目建成時確認。賣方：達時有限公司（亦為擁有人及其控權公司為恒基兆業有限公司、恒基兆業地產有限公司、謙耀置業有限公司、Good Time Limited及Broadwin Int'l Limited）。發展項目的認可人士：呂鄧黎建築師有限公司的黎紹堅先生（黎紹堅先生為呂鄧黎建築師有限公司的董事）。發展項目的承建商：恒順建築有限公司。賣方的代表律師：中倫律師事務所有限法律責任合夥及胡關李羅律師行。已為發展項目的建造提供貸款或已承諾為該項建造提供融資的認可機構：不適用。已為發展項目的建造提供貸款的任何其他人：恒基兆業地產代理有限公司。盡賣方所知的發展項目的預計關鍵日期為2026年12月31日。此預計關鍵日期是受到買賣合約所允許的任何延期所規限的。 </p>
+        <p>本廣告/宣傳資料內一切資料，須以政府相關部門最後批准之圖則及法律文件為準。賣方保留一切權利，按實際情況需要作出改動，而無須另行通知。在本廣告/宣傳資料內所載列的描述、參考、相片、繪圖、圖像或其他資料，無論是否明訂或隱含，並不構成或不應被視為提供任何要約、承諾、陳述或保證。此廣告由賣方或在賣方的同意下發布。詳情請參閱售樓說明書。此廣告之製作日期：2026年3月18日。</p>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="botton-area" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto mb-4" style="margin:0 auto 30px auto;width:247px;max-width:60%;"><img src="Scheduler_logo.svg" alt="Scheduler" width="180" height="auto" style="width:50%;max-width:none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <section id="home" class="hero">
+        <!-- The Video Element -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <!-- Replace this URL with your video file path -->
+            <source src="assets/Untitled.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        
+    </section>
+
+    
+
+    <div class="stacking-wrapper">
+    <!-- PHOTO GALLERY SECTION -->
+    
+
+    <section id="gallery" style="height: 75vh;background-color: #111;
+            position: -webkit-sticky;
+            position: sticky;top: 0; /* Sticks to the top of the screen */
+            background: #111;
+            justify-content: center;
+            z-index: 1; /* Lower layer */
+            overflow: hidden;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.5); /* Shadow adds depth to the cover */" >
+        <h2 class="text-center mb-4" style="padding-top: 20px;padding-left: 20px;color:white;font-weight: 100;top: 100px;" data-en="Property Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Property Gallery</h2>
+        <div class="slider-section">
+        <div class="slider-container">
+          <div class="slider" id="drag-slider">
+            <!-- Images will be injected here automatically -->
+          </div>
+        </div>
+
+        <!-- Lightbox Overlay -->
+        <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+          <img id="lightbox-img" src="" alt="Zoomed view">
+        </div>
+    </div>
+        <style type="text/css">
+            .slider-section{
+
+      overflow: hidden; 
+        position: relative;
+
+            }
+    .slider-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 75vh;
+      align-items: center; 
+      perspective: 2500px;
+      cursor: grab; /* Shows the hand icon */
+      background: #111;
+      overflow: hidden;
+      perspective-origin: 50% 50%;
+        transform: translateY(-20%); 
+    }
+
+    .slider-container:active {
+      cursor: grabbing; /* Shows closed hand when clicking */
+    }
+
+    .slider {
+      position: relative;
+      width: 200px;
+      height: 250px;
+      transform-style: preserve-3d;
+      transform-origin: center center; 
+      transition: transform 0.1s ease-out; /* Smooths out the drag */
+      will-change: transform; /* Optimizes for fast movement */
+    }
+
+    .slider span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120%;
+      height: 100%;
+      transform-style: preserve-3d;
+      /* (360 / 8 images = 45deg) */
+      transform: rotateY(calc(var(--i) * 22.5deg)) translateZ(350px);
+    }
+
+    .slider span img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      pointer-events: none; /* Prevents browser from "picking up" the image file */
+    }
+    .lightbox {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      cursor: zoom-out;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+
+    .slider span {
+      cursor: pointer; /* Show it's clickable */
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      backface-visibility: hidden; /* Stops flickering from the "back" of images */
+    }
+
+    .slider span img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      /* Adds a faded reflection below the image */
+      -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, rgba(0,0,0,0.2));
+    }
+
+        </style>
+        <script type="text/javascript">
+            // --- MANAGE YOUR IMAGES HERE ---
+    const imageSources = [
+      "concepts/01.jpg", "concepts/04.jpg",  
+      "concepts/05.jpg", "concepts/06.jpg", "concepts/07.jpg", "concepts/08.jpg",
+      "concepts/09.jpg", "concepts/11.jpg", "concepts/12.jpg",
+      "concepts/13.jpg", "concepts/14.jpg", "concepts/15.jpg", "concepts/16.jpg"
+    ];
+
+    const slider = document.getElementById('drag-slider');
+    const imgWidth = 200; // Match this to your CSS width
+
+    function initSlider() {
+      const n = imageSources.length;
+      const angleStep = 360 / n;
+      
+      // CALCULATE RADIUS: This prevents overlapping
+      // It moves images further out as the count (n) increases
+      const radius = Math.round((imgWidth / 2) / Math.tan(Math.PI / n)) + 20; 
+
+      slider.innerHTML = imageSources.map((src, i) => `
+        <span style="transform: rotateY(${i * angleStep}deg) translateZ(${radius}px);">
+          <img src="${src}" onclick="openLightbox('${src}')">
+        </span>
+      `).join('');
+    }
+
+    // 2. CLICK TO OPEN FUNCTION
+    function openLightbox(src) {
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      lbImg.src = src;
+      lb.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    // 3. EASE & DRAG LOGIC (From previous version)
+    let isDragging = false;
+    let startX = 0, rotation = 0, velocity = 0;
+
+    const baseSpeed = 0.1; // Adjust this for "Idle" rotation speed
+    const friction = 0.96; // How quickly the "flick" slows down
+
+    function update() {
+      if (!isDragging) {
+        velocity *= friction;
+        rotation += (baseSpeed + velocity);
+      }else {
+        // If dragging, we update rotation based on movement (handled in mousemove)
+        rotation += velocity; 
+      }
+      slider.style.transform = `rotateY(${rotation}deg)`;
+      requestAnimationFrame(update);
+    }
+
+    const container = document.querySelector('.slider-container');
+    container.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX;
+      velocity = 0; // Kill the flick momentum when user grabs it
+    });
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const x = e.pageX;
+      const diff = (x - startX) * 0.15; // Drag sensitivity
+      velocity = diff;
+      startX = x;
+    });
+    window.addEventListener('mouseup', () => 
+      isDragging = false);
+    // Initialize the loop and images
+    initSlider();
+    update();
+
+        </script>
+    </section>
+
+    <!-- NEXT SECTION (COVERS THE GALLERY) -->
+    <section id="location" class="covering-section" style="background-image: url('assets/wood_m.jpg');text-align: center;">
+        <h2 class="text-center mb-4" style=";padding-top:3%;color:white;font-weight: 100;top: 100px;" data-en="Location" data-zh-hans="項目地點" data-zh-hant="项目地点">Location</h2>
+        <!--div style="width:100%">
+            <img src="assets/locationPhoto.jpg" alt="referrence_info"
+            style="max-width: 100%; height: auto; display: block; margin: 0 auto;">
+        </div-->
+        <div style="width:100%">
+            <img src="assets/KV_Section2.jpg" alt="referrence_info"
+            style="max-width: 75%; height: auto; display: block; margin: 0 auto;box-shadow: 0 -20px 50px rgba(0,0,0,0.7);border:5px solid white">
+        </div>
+        <div class="col-12" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="col-2"></div>
+            <div class="col-5">
+                <h1 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="3 stations, 3 railways" data-zh-hans="三站三線" data-zh-hant="三站三线">三站三線</h1>
+                <h4 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="It is easy, no matter where you want to go." data-zh-hans="交通方便，四通八達。" data-zh-hant="交通方便，四通八达。">交通方便，四通八達。</h4>
+                
+            </div>
+            
+            <div class="col-4">
+                <img src="assets/map2.jpg" alt="map2_info" style="max-width: 100%; height: auto; display: block; margin: 0 auto;box-shadow: 0 -20px 50px rgba(0,0,0,0.5);border:5px solid white">
+            </div>
+            <div class="col-1"></div>
+        </div>
+
+    </section>
+    </div>
+
+    <style>
+        .stacking-wrapper {
+            position: relative;
+            /* Height must be enough for both to 'pin'. 
+               200vh means: 100vh for Gallery to pin + 100vh for Booking to cover it. */
+        }
+
+        .gallery-content {
+            width: 100%;
+            text-align: center;
+            vertical-align: center;
+        }
+
+        /* 2. The Section that slides on top */
+        .covering-section {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2; /* Higher layer to cover the gallery */
+            background: #ffffff; /* Must have a background color to hide the gallery below */
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.5); /* Shadow adds depth to the cover */
+            border-top-left-radius: 40px; /* Optional: Rounded corners for a modern feel */
+            border-top-right-radius: 40px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .reveal-section {
+            position: relative;
+            z-index: 3; /* Must be higher than the sticky layers or equal */
+            min-height: 100vh;
+            background: #f8f9fa;
+            padding: 100px 5%;
+        }
+
+        /* Keep the accordion style from previous step */
+        .accordion-container {
+            display: flex;
+            gap: 10px;
+            padding: 0 5%;
+            height: 60vh;
+        }
+        .accordion-item { flex: 1; transition: 0.6s; border-radius: 10px; overflow: hidden; }
+        .accordion-item:hover { flex: 4; }
+        .accordion-item img { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+
+    <div class="stacking-wrapper">
+    <!-- PHOTO GALLERY SECTION -->
+    <section class="sticky-gallery" style="background-image: url('assets/wood_m.jpg');" >
+        <div class="" style="width:100%;height:50vh;">
+            <!--table border="0" align="center" cellpadding="0" cellspacing="0" style="width:75%;height:100%;margin-left: auto;margin-right: auto; margin-top: auto;margin-bottom: auto;">
+                <tr >
+                    <td width="10%"></td>
+
+                    <td width="40%" >
+                        <img src="assets/map.png" alt="map_info" style="max-width: 100%; height: auto; display: block; margin: 0 auto;box-shadow: 0 -20px 50px rgba(0,0,0,0.5);">
+                    </td>
+                    <td width="10%"></td>
+                    <td width="40%" >
+                        <h1 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="Institutions" data-zh-hans="名校網絡" data-zh-hant="名校网络">名校網絡</h1>
+                        <h2 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="- Primary School Net 35" data-zh-hans="- 小學35校網" data-zh-hant="- 小学35校网">- 小學35校網</h2>
+                        <h2 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="- Kowloon City District Secondary School Net " data-zh-hans="- 九龍城中學校網" data-zh-hant="- 九龙城中学校网">- 九龍城中學校網 </h2>
+                        <h2 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="- <30mins to HKU, CUHK, PolyU, CityU" data-zh-hans="- 港大，中大，理大，城大30分鐘到" data-zh-hant="- 港大，中大，理大，城大30分钟到">- 港大，中大，理大，城大30分鐘到</h2>
+                        
+                    </td>
+                </tr>
+            </table-->
+            <div class="col-12" style="display: flex; justify-content: space-between; align-items: center;">
+                <div class="col-2"></div>
+                <div class="col-4">
+                    <img src="assets/map.png" alt="map_info" style="max-width: 100%; height: auto; display: block; margin: 0 auto;box-shadow: 0 -20px 50px rgba(0,0,0,0.5);border:5px solid white">
+                </div>
+                
+                <div class="col-5">
+                    <h1 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="Institutions" data-zh-hans="名校網絡" data-zh-hant="名校网络">名校網絡</h1>
+                    <h4 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="- Primary School Net 35" data-zh-hans="- 小學35校網" data-zh-hant="- 小学35校网">- 小學35校網</h4>
+                    <h4 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="- Kowloon City District Secondary School Net " data-zh-hans="- 九龍城中學校網" data-zh-hant="- 九龙城中学校网">- 九龍城中學校網 </h4>
+                    <h4 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="- <30mins to HKU, CUHK, PolyU, CityU" data-zh-hans="- 港大，中大，理大，城大30分鐘到" data-zh-hant="- 港大，中大，理大，城大30分钟到">- 港大，中大，理大，城大30分鐘到</h4>
+                </div>
+                <div class="col-1"></div>
+            </div>
+            
+        </div>
+    </section>
+
+    
+
+    <!-- NEXT SECTION (COVERS THE GALLERY) -->
+    <section id="units" class="covering-section" style="background-image: url('assets/wood_m.jpg');" >
+        <div style="width:100%;text-align: center;">
+            <h2 class="text-center mb-4" style=";padding-top:3%;color:white;font-weight: 100;top: 100px;" data-en="Unit Types" data-zh-hans="戶型分佈" data-zh-hant="戶型分佈">Unit Types</h2>
+            <img src="assets/format.png" alt="format_info"
+            style="max-width: 75%; height: auto;  margin: 0 auto;box-shadow: 0 -20px 50px rgba(0,0,0,0.5);border:5px solid white">
+            
+        </div>
+        <div style="text-align: center;">
+            <h1 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="From 1 room to 4 rooms" data-zh-hans="1房，2房，3房，4房特色單位。" data-zh-hant="1房，2房，3房，4房特色單位。">From 1room to 4rooms</h1>
+            <h2 class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="Satisfying your every needs." data-zh-hans="自住，收租都有適合間隔。" data-zh-hant="自住，收租都有適合間隔。">- Satisfying your every needs.</h2>
+        </div>
+        <div style="height:50px">
+        </div>
+
+
+    </section>
+    </div>
+
+    <style>
+        .stacking-wrapper {
+            position: relative;
+            /* Height must be enough for both to 'pin'. 
+               200vh means: 100vh for Gallery to pin + 100vh for Booking to cover it. */
+        }
+        /* 1. The Gallery Section that stops */
+        .sticky-gallery {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0; /* Sticks to the top of the screen */
+            background: #111;
+            justify-content: center;
+            z-index: 1; /* Lower layer */
+            overflow: hidden;
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.5); /* Shadow adds depth to the cover */
+
+        }
+
+        .gallery-content {
+            width: 100%;
+            text-align: center;
+            vertical-align: center;
+        }
+
+        /* 2. The Section that slides on top */
+        .covering-section {
+            position: -webkit-sticky;
+            position: sticky;
+            top: 0;
+            z-index: 2; /* Higher layer to cover the gallery */
+            background: #ffffff; /* Must have a background color to hide the gallery below */
+            box-shadow: 0 -20px 50px rgba(0,0,0,0.5); /* Shadow adds depth to the cover */
+            border-top-left-radius: 40px; /* Optional: Rounded corners for a modern feel */
+            border-top-right-radius: 40px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .reveal-section {
+            position: relative;
+            z-index: 3; /* Must be higher than the sticky layers or equal */
+            min-height: 100vh;
+            background: #f8f9fa;
+            padding: 100px 5%;
+        }
+
+        /* Keep the accordion style from previous step */
+        .accordion-container {
+            display: flex;
+            gap: 10px;
+            padding: 0 5%;
+            height: 60vh;
+        }
+        .accordion-item { flex: 1; transition: 0.6s; border-radius: 10px; overflow: hidden; }
+        .accordion-item:hover { flex: 4; }
+        .accordion-item img { width: 100%; height: 100%; object-fit: cover; }
+    </style>
+
+    <section id="contactUs" class="col-12">
+        
+        <div style="height:50px"></div>
+        <div class="col-12">
+            <h2 class="text-center " style="margin-bottom:0;color:white;font-weight: 100;top: 100px;" data-en="Contact Us" data-zh-hans="聯絡我們" data-zh-hant="联络我们">聯絡我們</h2>
+            <p class="text-center mb-4" style="margin-top:0;color:white;font-weight: 100;" data-en="For more details from our professionals." data-zh-hans="專業團隊將為您提供詳盡資訊" data-zh-hant="专业团队将为您提供详尽资讯">專業團隊將為您提供詳盡資訊</p>
+        </div>
+        <div style="height:50px"></div>
+        <div class="col-12" style="display:flex;justify-content: center;">
+            <p class="text-center mb-4" style=";margin:10px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透過 Whatsapp:" data-zh-hant="透过 Whatsapp:">透過 Whatsapp:</p>
+            <div><a href="https://wa.me" 
+               id="whatsappBtn"
+               class="btn-whatsapp-contactus"
+               target="_blank">
+                <img src="assets/WhatsApp_Logo.png" alt="WA" width="20">
+                <span >Whatsapp</span>
+            </a></div>
+        </div>
+        <div class="col-12" style="display:flex;justify-content: center;">
+            <p class="text-center mb-4" style="margin:20px;color:white;font-weight: 100;top: 100px;" data-en="via WeChat:" data-zh-hans="透過微信:" data-zh-hant="透过微信:">透過微信:</p>
+            <div><a >
+                <img style="width:100px" src="assets/wechat.jpg" alt="WA" width="20">
+            </a></div>
+        </div>
+        <div class="top-area col-12" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto mb-4" style="margin:50px auto 30px auto;width:247px;max-width:30%;"><img src="Scheduler_logo.svg" alt="TS" width="247" height="auto" style="width:100%;max-width:none;"></div>
+          </div>
+        </div>
+    </section>
+
+
+
+    <footer class="sticky-footer">
+        <span class="font-serif text-3xl md:text-4xl lg:text-5xl tracking-wider text-accent-foreground"
+        data-en="Book your visit today" data-zh-hans="今日预约参观" data-zh-hant="今日預約參觀">Book your visit today</span>
+        <!-- WHATSAPP BOOKING BUTTON -->
+        <div class="text-center ">
+            <a 
+               id="whatsappBtn"
+               class="btn-whatsapp">
+                <img src="assets/WhatsApp_Logo.png" alt="WA" width="20">
+                <span data-en="Chat to Book Visit" 
+                      data-zh-hans="通过 WhatsApp 预约" 
+                      data-zh-hant="透過 WhatsApp 預約">Chat to Book Visit</span>
+            </a>
+        </div>
+
+        <style>
+            /* --- STICKY FOOTER --- */
+            .sticky-footer {
+                position: fixed; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7);
+                padding: 15px 5%; color:white; font-weight: 100; font-size: 20px;
+                display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            }
+
+            .btn-whatsapp-contactus {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background-color: rgba(0, 160, 120, 1); /* WhatsApp Green */
+                color: white;
+                padding: 5px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            .btn-whatsapp {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background-color: #000; /* WhatsApp Green */
+                color: white;
+                padding: 15px 30px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            .btn-whatsapp:hover {
+                background-color: #128C7E;
+                transform: scale(1.05);
+                color: white;
+            }
+            .btn-whatsapp-contactus:hover {
+                background-color: #128C7E;
+                transform: scale(1.05);
+                color: white;
+            }
+
+            /* Optional: Floating version for mobile */
+            @media (max-width: 768px) {
+                .btn-whatsapp {
+                    font-size: 16px;
+                    padding: 12px 20px;
+                }
+            }
+        </style>
+
+        <script>
+            // Logic to update the WhatsApp pre-filled text based on language
+            function updateWhatsAppLink(lang) {
+                const btn = document.getElementById('whatsappBtn');
+                let message = "";
+
+                if (lang === 'en') {
+                    message = "Hi, I would like to book a visit to Chester.";
+                } else if (lang === 'zh-hans') {
+                    message = "你好，我想预约参观首汇。请提供更多详情。";
+                } else if (lang === 'zh-hant') {
+                    message = "你好，我想預約參觀首匯。請提供更多詳情。";
+                }
+
+                // Encode the message for the URL
+                const encodedMsg = encodeURIComponent(message);
+                btn.href = `https://wa.me/85294539918?text={encodedMsg}`;
+            }
+
+            // Wrap your existing setLanguage function to include this update
+            const originalSetLanguage = window.setLanguage;
+            window.setLanguage = function(lang) {
+                if (typeof originalSetLanguage === "function") originalSetLanguage(lang);
+            };
+
+            function whatsappLangChange(lang){
+                const btn = document.getElementById('whatsappBtn');
+                console.log("the lang now is : "+lang);
+                if (lang === 'en') {
+                    btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
+                } else if (lang === 'zh-hans') {
+                    btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
+                } else if (lang === 'zh-hant') {
+                    btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
+                }
+                console.log(document.getElementById('whatsappBtn').href);
+            }
+        </script>
+    </footer>
+
+
+
+
+    <script>
+        // Language Logic
+        function setLanguage(lang) {
+            const translatable = document.querySelectorAll('[data-en]');
+            translatable.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.innerText = text;
+            });
+            localStorage.setItem('siteLang', lang);
+            whatsappLangChange(lang);
+        }
+
+        // Fade Navbar Logic
+        const navlog = document.getElementById('nav_Logo');
+        const navbtn = document.getElementById('nav_Btns');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navlog.classList.add('hidden');
+                navbtn.classList.add('hidden');
+            } else {
+                navlog.classList.remove('hidden');
+                navbtn.classList.remove('hidden');
+            }
+        });
+
+        // Init
+        window.onload = () => {
+            const saved = localStorage.getItem('siteLang') || 'zh-hant';
+            setLanguage(saved);
+        };
+    </script>
+</body>
+</html>
