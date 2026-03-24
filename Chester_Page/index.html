@@ -31,15 +31,15 @@
         .nav-top {
             display: flex; justify-content: space-between; align-items: center;
         }
-        /*.nav-bottom {
+        .nav-bottom {
             display: flex; justify-content: center; gap: 15px;
             padding: 10px 5%; flex-wrap: wrap;
-        }*/
+        }
 
         /* Buttons */
         .lang-switcher {
              padding: 4px 8px;color: white;
-            cursor: pointer; margin-left: 5px;
+            cursor: pointer; margin-left: 5px;font-size: 15px; font-weight: 100;
         }
         
         .nav-btn {
@@ -150,18 +150,18 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
     <header id="mainNav" class="navbar" style="background-color:rgba(0, 0, 0, 0.0);">
         <!-- Row 1: Logo & Language -->
         <div class="nav-top col-12" >
-            <a id="nav_Logo" class="navbar-brand " >
+            <a id="nav_Logo" class="navbar-brand " style="col-3">
               <img src="Chester_logo_w.svg" alt="Chester Logo" style="width:100%;max-width:none;">
             </a>
 
-            <div id="nav_Btns" class="nav-bottom">
+            <div id="nav_Btns" class="nav-bottom" style="font-size:1en col-6">
             
                 <a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a>
                 <a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a>
                 <a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a>
                 <a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a>
             </div>
-            <div class="lang-switcher ">
+            <div class="lang-switcher col-3">
                 <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
                 <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
                 <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
