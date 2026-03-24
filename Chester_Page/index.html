@@ -655,7 +655,7 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
         <!-- WHATSAPP BOOKING BUTTON -->
         <div class="text-center ">
             <a 
-               id="whatsappBtn"
+               id="whatsappBtn2"
                class="btn-whatsapp">
                 <img src="assets/WhatsApp_Logo.png" alt="WA" width="20">
                 <span data-en="Chat to Book Visit" 
@@ -749,15 +749,18 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
 
             function whatsappLangChange(lang){
                 const btn = document.getElementById('whatsappBtn');
+                const btn2 = document.getElementById('whatsappBtn2');
                 console.log("the lang now is : "+lang);
                 if (lang === 'en') {
                     btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
+                    btn2.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
                 } else if (lang === 'zh-hans') {
                     btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
+                    btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
                 } else if (lang === 'zh-hant') {
                     btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
+                    btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
                 }
-                console.log(document.getElementById('whatsappBtn').href);
             }
         </script>
     </footer>
