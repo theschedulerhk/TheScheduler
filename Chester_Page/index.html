@@ -622,7 +622,8 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
         <div class="col-12" style="justify-content: center; align-items:center">
             <p class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透過 Whatsapp:" data-zh-hant="透过 Whatsapp:">透過 Whatsapp:</p>
             <div style="display:flex;justify-content: center;">
-                <a href="https://wa.me" 
+                <a onclick="gtag_report_conversion(url)"
+                    href="javascript:void(0);" 
                id="whatsappBtn"
                class="btn-whatsapp-contactus"
                target="_blank" style="">
@@ -654,7 +655,8 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
         data-en="Book your visit today" data-zh-hans="今日预约参观" data-zh-hant="今日預約參觀">Book your visit today</span>
         <!-- WHATSAPP BOOKING BUTTON -->
         <div class="text-center ">
-            <a href="https://wa.me"
+            <a onclick="gtag_report_conversion(url)"
+                href="javascript:void(0);"
                id="whatsappBtn2"
                class="btn-whatsapp" target="_blank" style="">
                 <img src="assets/WhatsApp_Logo.png" alt="WA" width="20">
@@ -722,6 +724,24 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
             }
         </style>
 
+        <!-- Event snippet for Book appointment conversion page
+        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+        <script>
+        function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18037037156/DifUCPCxpo8cEOSw3ZhD',
+              'event_callback': callback
+          });
+          return false;
+        }
+        </script>
+
+
         <script>
             // Logic to update the WhatsApp pre-filled text based on language
             function updateWhatsAppLink(lang) {
@@ -750,16 +770,26 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
             function whatsappLangChange(lang){
                 const btn = document.getElementById('whatsappBtn');
                 const btn2 = document.getElementById('whatsappBtn2');
+                var waUrl1 = "https://wa.me/85294539918?text=" + encodeURIComponent("Hi, I would like to book a visit to Chester.");
+                var waUrl2 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想预约参观首汇。请提供更多详情。");
+                var waUrl3 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想預約參觀首匯。請提供更多詳情。");
+
                 console.log("the lang now is : "+lang);
                 if (lang === 'en') {
                     btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
                     btn2.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
+                    btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+                    btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
                 } else if (lang === 'zh-hans') {
                     btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
                     btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
+                    btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+                    btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
                 } else if (lang === 'zh-hant') {
                     btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
                     btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
+                    btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+                    btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
                 }
             }
         </script>
