@@ -1,0 +1,516 @@
+
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta 
+    />
+    <meta name="generator" content="Astro v5.13.2" />
+    <title>形瑨 Lime Spark</title>
+    <link
+      rel="canonical"
+      href="https://getbootstrap.com/docs/5.3/examples/product/"
+    />
+    <script src="../assets/js/color-modes.js"></script>
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#712cf9" />
+    <link href="product.css" rel="stylesheet" />
+    <style>
+	 body{background-color: rgba(240, 240, 80, 0.3); }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: #0000001a;
+        border: solid rgba(0, 0, 0, 0.15);
+        border-width: 1px 0;
+        box-shadow:
+          inset 0 0.5em 1.5em #0000001a,
+          inset 0 0.125em 0.5em #00000026;
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -0.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+
+        .navbar-brand {transition: opacity 0.4s ease, visibility 0.4s ease;opacity: 1; visibility: visible;}
+        .nav-bottom{transition: opacity 0.4s ease, visibility 0.4s ease;opacity: 1; visibility: visible;}
+        .navbar-brand.hidden { opacity: 0; visibility: hidden; }
+        .nav-bottom.hidden { opacity: 0; visibility: hidden; }
+
+        /* Navbar Rows */
+        .nav-top {
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .nav-bottom {
+            display: flex; justify-content: center; gap: 15px;
+            padding: 10px 5%; flex-wrap: wrap;
+        }
+
+        /* Buttons */
+        .lang-switcher {
+            color: white;
+            cursor: pointer;font-size: 15px; font-weight: 100;
+        }
+        
+        .nav-btn {
+            text-decoration: none; color:rgb(206,226,7); font-size: 15px; font-weight: 100;
+            padding: 6px 12px;
+            transition: 0.2s ease; background: transparent; font:"Helvetica Neue";
+        }
+        .nav-btn:hover { transform: scale(1.1) ;text-decoration: underline; }
+    </style>
+  </head>
+  <body>
+    <header id="mainNav" class="navbar-nav flex-grow-1 " style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(45,47,12,1.0), rgba(45,47,12,0.0)); height:20vh; ">
+        <!-- Row 1: Logo & Language -->
+        <div class="nav-top col-12" >
+			<div class="col-1">&nbsp;</div>
+            <a id="nav_Logo" class="navbar-brand col-2" >
+			  <img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:90%;max-width:none;padding:10px;">
+            </a>
+
+            <div id="nav_Btns" class="nav-bottom col-6" >
+            
+                <a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a>
+                <a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a>
+                <a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a>
+                <a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a>
+            </div>
+            <div class="lang-switcher col-3 nav-bottom">
+                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
+                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
+                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
+            </div>
+
+        </div>
+    </header>
+	
+	<div id="mainTextPopup" style="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 20000; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;">
+      <div class="box-container relative flex" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;height:100vh;margin:auto;max-height:650px;padding:40px;max-width:1200px;background:rgb(12,12,6);color:#E1DBCB;z-index: 200000;">
+        <button id="mainTextPopupClose" style="position:absolute;top:0;right:0;background:none;border:none;color:#A15A33;font-size:38px;z-index:2;cursor:pointer;padding:25px;" onclick="hideElement()"><img src="../xmark.png" width="33"></button>
+        <script>function hideElement() {
+              var x = document.getElementById("mainTextPopup");
+              x.style.display = "none";
+            }
+        </script>
+        <div class="top-area" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto " style="margin:0 auto 0px auto;width:247px;max-width:60%;"><img src="LimeSpark_lime.svg" alt="Lime Spark" width="247" height="auto" style="width:100%;max-width:none;"></div>
+          </div>
+        </div>
+        <div class="inner-content relative z-2 grow" style="flex:1;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size: 0.8em;max-height:65%">
+          <div class="scroll-layer" style="position:relative;width:100%;height:90%;overflow-y:auto;" data-cs-inited="1">
+            <div class="scroll-content" style="padding:0 10px;">
+              <div class="text-center">
+                <div class="mdDisclaimer" >
+        <p>發展項目名稱：形瑨<br>
+        發展項目的街道名稱及門牌號數：橫窩仔街21號&nbsp;&nbsp;|&nbsp;&nbsp;區域：荃灣&nbsp;&nbsp;|&nbsp;&nbsp;</p>
+        <p>免責聲明：本網頁並不是發展項目之官方網站網頁。本廣告內的圖片與發展商的樓盤並無任何關係。準買家如欲了解發展項目詳情，請參閱售樓說明書。資料有可能出現售價、現金或其他條件上的改動，或撤回而不經提前通知，並可能受特別條款約束。本宣傳旨在提供更多一手新盤資料及圖片檔案服務只供閱覽；不聲明或保證所提供訊息的準確性和完整性。</p>
+        <p>在撰寫本廣告時，雖已作出合理和謹慎的考慮，對資料的完整和準確性恕不保證、明示或暗示絕對無誤。因使用此資料而直接或間接引致的損失或損毀。本網站恕不負責。本網站內所有內容包括一手新盤資料，僅供參考和借鑒，物業資料，一切以發展商最新公布為準。本頁面所提到房屋面積如無特別標示，均指實用面積。客戶應自行確保資料或，內容的完整性和準確性。所載資料僅供參考，並不構成要約或合約一部份。如有需要，客戶應自行咨詢相關法律及/或專業意見。</p>
+        <p>*此臨時街道名稱及門牌號數有待發展項目建成時確認。賣方：Tippon Investment Enterprises Limited 賣方的控權公司：新鴻基地產發展有限公司 （Win Profit Properties Ltd.）。發展項目的承建商：新鴻基地產發展有限公司。盡賣方所知的發展項目的預計關鍵日期為2027年04月30日。此預計關鍵日期是受到買賣合約所允許的任何延期所規限的。 </p>
+        <p>本廣告/宣傳資料內一切資料，須以政府相關部門最後批准之圖則及法律文件為準。賣方保留一切權利，按實際情況需要作出改動，而無須另行通知。在本廣告/宣傳資料內所載列的描述、參考、相片、繪圖、圖像或其他資料，無論是否明訂或隱含，並不構成或不應被視為提供任何要約、承諾、陳述或保證。此廣告之製作日期：2026年3月27日。</p>  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="botton-area" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto mb-4" style="margin:0 auto 30px auto;width:247px;max-width:60%;"><img src="../Scheduler_logo.svg" alt="Scheduler" width="180" height="auto" style="width:50%;max-width:none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+   
+    <main>
+      <div
+        class=" text-center " style="background-color:rgb(40,48,17);top:0;width:80vw;margin-left:auto;margin-right:auto;"
+      >
+	  <div style="height:15vh"></div>
+	    <a class="navbar-brand col-2" >
+		  <img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:50%;max-width:none;padding:10px;">
+		</a>
+        <div class="col-md-6 p-lg-5 mx-auto my-5" style="color:white">
+          <h1 class="display-3 fw-bold">目前已知</h1>
+		  <table style="width:100%">
+			  <tr>
+				<td>伙數</td>
+				<td>:</td>
+				<td>462伙</td>
+			  </tr>
+			  <tr>
+				<td>戶型</td>
+				<td>:</td>
+				<td>1房至3房，設特色戶</td>
+			  </tr>
+			  <tr>
+				<td>發展商</td>
+				<td>:</td>
+				<td>新鴻基</td>
+			  </tr>
+			  <tr>
+				<td>校網</td>
+				<td>:</td>
+				<td>（小學）62</td>
+			  </tr>
+			  <tr>
+				<td colspan="2"></td>
+				<td>（中學）荃灣區</td>
+			  </tr>
+			  <tr>
+				<td>預計關鍵<br>日期</td>
+				<td>:</td>
+				<td>2027年04月30日</td>
+			  </tr>
+		  </table>
+          <div class="d-flex gap-3 justify-content-center lead fw-normal">
+            
+          </div>
+        </div>
+		<div style="height:10vh"></div>
+        
+      </div>
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-body-tertiary shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+        <div
+          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-dark shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+      </div>
+      <!--div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-dark shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+        <div
+          class="text-bg-primary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-body-tertiary shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+      </div>
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-body shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+        <div
+          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-body shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+      </div>
+      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+        <div
+          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 p-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-body shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+        <div
+          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
+        >
+          <div class="my-3 py-3">
+            <h2 class="display-5">Another headline</h2>
+            <p class="lead">And an even wittier subheading.</p>
+          </div>
+          <div
+            class="bg-body shadow-sm mx-auto"
+            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
+          ></div>
+        </div>
+      </div-->
+    </main>
+    <footer class="sticky-footer">
+        <span class="font-serif text-3xl md:text-4xl lg:text-5xl tracking-wider text-accent-foreground"
+        data-en="Book your visit today" data-zh-hans="今日预约参观" data-zh-hant="今日預約參觀">Book your visit today</span>
+        <!-- WHATSAPP BOOKING BUTTON -->
+        <div class="text-center ">
+            <a onclick="gtag_report_conversion(url)"
+                href="javascript:void(0);"
+               id="whatsappBtn2"
+               class="btn-whatsapp" target="_blank" style="
+                padding: 10px 15px;">
+                <img src="../WhatsApp_Logo.png" alt="WA" width="30">
+                <span data-en="Chat to Book Visit" 
+                      data-zh-hans="通过 WhatsApp 预约" 
+                      data-zh-hant="透過 WhatsApp 預約">Chat to Book Visit</span>
+            </a>
+        </div>
+
+        <style>
+            /* --- STICKY FOOTER --- */
+            .sticky-footer {
+                position: fixed; bottom: 0; width: 100%; background: rgba(0, 0, 0, 0.7);
+                padding: 15px 5%; color:white; font-weight: 100; font-size: 20px;
+                display: flex; justify-content: space-between; align-items: center; z-index: 1000;
+            }
+
+            .btn-whatsapp-contactus {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background-color: rgba(0, 160, 120, 1); /* WhatsApp Green */
+                color: white;
+                padding: 5px 20px;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            .btn-whatsapp {
+                display: inline-flex;
+                align-items: center;
+                gap: 10px;
+                background-color: #000; /* WhatsApp Green */
+                color: white;
+                border-radius: 50px;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+                box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            }
+
+            .btn-whatsapp:hover {
+                background-color: #128C7E;
+                transform: scale(1.05);
+                color: white;
+            }
+            .btn-whatsapp-contactus:hover {
+                background-color: #128C7E;
+                transform: scale(1.05);
+                color: white;
+            }
+
+            /* Optional: Floating version for mobile */
+            @media (max-width: 768px) {
+                .btn-whatsapp {
+                    font-size: 16px;
+                    padding: 12px 20px;
+                }
+            }
+        </style>
+
+        <!-- Event snippet for Book appointment conversion page
+        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+        <script>
+        function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+              'send_to': '',
+              'event_callback': callback
+          });
+          return false;
+        }
+        </script>
+    </footer>
+    <script
+      src="../assets/dist/js/bootstrap.bundle.min.js"
+      class="astro-vvvwv3sm"
+    ></script>
+	<script>
+		// Logic to update the WhatsApp pre-filled text based on language
+		function updateWhatsAppLink(lang) {
+			const btn = document.getElementById('whatsappBtn');
+			let message = "";
+
+			if (lang === 'en') {
+				message = "Hi, I would like to book a visit to Lime Spark.";
+			} else if (lang === 'zh-hans') {
+				message = "你好，我想预约参观首汇。请提供更多详情。";
+			} else if (lang === 'zh-hant') {
+				message = "你好，我想預約參觀首匯。請提供更多詳情。";
+			}
+
+			// Encode the message for the URL
+			const encodedMsg = encodeURIComponent(message);
+			btn.href = `https://wa.me/85294539918?text={encodedMsg}`;
+		}
+
+		// Wrap your existing setLanguage function to include this update
+		const originalSetLanguage = window.setLanguage;
+		window.setLanguage = function(lang) {
+			if (typeof originalSetLanguage === "function") originalSetLanguage(lang);
+		};
+
+		function whatsappLangChange(lang){
+			const btn = document.getElementById('whatsappBtn');
+			const btn2 = document.getElementById('whatsappBtn2');
+			var waUrl1 = "https://wa.me/85294539918?text=" + encodeURIComponent("Hi, I would like to book a visit to Chester.");
+			var waUrl2 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想预约参观首汇。请提供更多详情。");
+			var waUrl3 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想預約參觀首匯。請提供更多詳情。");
+
+			console.log("the lang now is : "+lang);
+			if (lang === 'en') {
+				btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
+				btn2.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
+				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+			} else if (lang === 'zh-hans') {
+				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
+				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
+				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+			} else if (lang === 'zh-hant') {
+				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
+				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
+				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+			}
+		}
+        // Language Logic
+        function setLanguage(lang) {
+            const translatable = document.querySelectorAll('[data-en]');
+            translatable.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text) el.innerText = text;
+            });
+            localStorage.setItem('siteLang', lang);
+            whatsappLangChange(lang);
+        }
+
+        // Fade Navbar Logic
+        const navlog = document.getElementById('nav_Logo');
+        const navbtn = document.getElementById('nav_Btns');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navlog.classList.add('hidden');
+                navbtn.classList.add('hidden');
+            } else {
+                navlog.classList.remove('hidden');
+                navbtn.classList.remove('hidden');
+            }
+        });
+
+        // Init
+        window.onload = () => {
+            const saved = localStorage.getItem('siteLang') || 'zh-hant';
+            setLanguage(saved);
+        };
+    </script>
+  </body>
+</html>
