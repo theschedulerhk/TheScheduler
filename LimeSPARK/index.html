@@ -135,6 +135,7 @@
     </style>
   </head>
   <body>
+  
     <header id="mainNav" class="navbar-nav flex-grow-1 " style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(45,47,12,1.0), rgba(45,47,12,0.0)); height:20vh; ">
         <!-- Row 1: Logo & Language -->
         <div class="nav-top col-12" >
@@ -158,7 +159,72 @@
 
         </div>
     </header>
-	
+	<div id="mainTextPopup2" style="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 19999; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;">
+      <div class="box-container relative flex" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;height:100vh;margin:auto;max-height:650px;padding:40px;max-width:1200px;background:rgb(12,12,6);color:#E1DBCB;z-index: 200000;">
+        <button id="mainTextPopupClose" style="position:absolute;top:0;right:0;background:none;border:none;color:#A15A33;font-size:38px;z-index:2;cursor:pointer;padding:25px;" onclick="hideElement2()"><img src="../xmark.png" width="33"></button>
+        <script>function hideElement2() {
+              var x = document.getElementById("mainTextPopup2");
+              x.style.display = "none";
+            }
+        </script>
+        <div class="top-area" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto " style="margin:0 auto 0px auto;width:247px;max-width:60%;"><img src="LimeSpark_lime.svg" alt="Lime Spark" width="247" height="auto" style="width:100%;max-width:none;"></div>
+          </div>
+        </div>
+		<div class="lang-switcher col-3 " style="text-align:center;justify-content:center; margin-left:auto;margin-right:auto">
+			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
+			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
+			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
+        </div>
+        <div class="inner-content relative z-2 grow" style="flex:1;width:100%;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size: 0.8em;max-height:65%">
+          <div class="scroll-layer" style="position:relative;width:100%;height:90%;overflow-y:auto;" data-cs-inited="1">
+            <div class="scroll-content" style="padding:0 10px;">
+              <div class="text-center">
+                <div class="mdDisclaimer" >
+					<h1
+					data-en="This project is current pending sales arrangement"  
+					data-zh-hans="項目還在等待銷售安排。"
+					data-zh-hans="项目还在等待销售安排。">
+					項目還在等待銷售安排。</h1>
+                </div>
+				<br><br>
+				<h5>歡迎查詢最新資料</h5>
+				<div style="display:flex;justify-content: center; justify-content: space-between; width:50%;margin-left:auto;margin-right:auto">
+					<div style="justify-content: center;">
+						<h5 class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透過 Whatsapp:" data-zh-hant="透过 Whatsapp:">透過 Whatsapp:</h5>
+						<a onclick="gtag_report_conversion(url)"
+							href="javascript:void(0);" 
+							id="whatsappBtn"
+							class="btn-whatsapp-contactus"
+							target="_blank">
+							<img src="../WhatsApp_Logo.png" alt="WA" width="20">
+							<span style="font-weight: 200;">Whatsapp</span>
+						</a>
+					</div>
+					<div style="justify-content: center;">
+						<h5 class="text-center " style="margin:5px;color:white;font-weight: 100;top: 100px; " data-en="via WeChat:" data-zh-hans="透過微信:" data-zh-hant="透过微信:">透過微信:</h5>
+						<a>
+							<img style="width:100px" src="../wechat.jpg" alt="WA" width="20">
+						</a>
+					</div>
+				</div>
+              </div>
+            </div>
+          </div>
+		  
+		  
+		
+        </div>
+        
+        <div class="botton-area" style="width:100%;text-align:center;">
+          <div>
+            <div class="logo mx-auto mb-4" style="margin:0 auto 30px auto;width:247px;max-width:60%;"><img src="../Scheduler_logo.svg" alt="Scheduler" width="180" height="auto" style="width:50%;max-width:none;"></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 	<div id="mainTextPopup" style="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 20000; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;">
       <div class="box-container relative flex" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;height:100vh;margin:auto;max-height:650px;padding:40px;max-width:1200px;background:rgb(12,12,6);color:#E1DBCB;z-index: 200000;">
         <button id="mainTextPopupClose" style="position:absolute;top:0;right:0;background:none;border:none;color:#A15A33;font-size:38px;z-index:2;cursor:pointer;padding:25px;" onclick="hideElement()"><img src="../xmark.png" width="33"></button>
@@ -182,7 +248,7 @@
         <p>免責聲明：本網頁並不是發展項目之官方網站網頁。本廣告內的圖片與發展商的樓盤並無任何關係。準買家如欲了解發展項目詳情，請參閱售樓說明書。資料有可能出現售價、現金或其他條件上的改動，或撤回而不經提前通知，並可能受特別條款約束。本宣傳旨在提供更多一手新盤資料及圖片檔案服務只供閱覽；不聲明或保證所提供訊息的準確性和完整性。</p>
         <p>在撰寫本廣告時，雖已作出合理和謹慎的考慮，對資料的完整和準確性恕不保證、明示或暗示絕對無誤。因使用此資料而直接或間接引致的損失或損毀。本網站恕不負責。本網站內所有內容包括一手新盤資料，僅供參考和借鑒，物業資料，一切以發展商最新公布為準。本頁面所提到房屋面積如無特別標示，均指實用面積。客戶應自行確保資料或，內容的完整性和準確性。所載資料僅供參考，並不構成要約或合約一部份。如有需要，客戶應自行咨詢相關法律及/或專業意見。</p>
         <p>*此臨時街道名稱及門牌號數有待發展項目建成時確認。賣方：Tippon Investment Enterprises Limited 賣方的控權公司：新鴻基地產發展有限公司 （Win Profit Properties Ltd.）。發展項目的承建商：新鴻基地產發展有限公司。盡賣方所知的發展項目的預計關鍵日期為2027年04月30日。此預計關鍵日期是受到買賣合約所允許的任何延期所規限的。 </p>
-        <p>本廣告/宣傳資料內一切資料，須以政府相關部門最後批准之圖則及法律文件為準。賣方保留一切權利，按實際情況需要作出改動，而無須另行通知。在本廣告/宣傳資料內所載列的描述、參考、相片、繪圖、圖像或其他資料，無論是否明訂或隱含，並不構成或不應被視為提供任何要約、承諾、陳述或保證。此廣告之製作日期：2026年3月27日。</p>  
+        <p>賣方保留一切權利，按實際情況需要作出改動，而無須另行通知。在本廣告/宣傳資料內所載列的描述、參考、相片、繪圖、圖像或其他資料，無論是否明訂或隱含，並不構成或不應被視為提供任何要約、承諾、陳述或保證。此廣告之製作日期：2026年3月27日。</p>  
                 </div>
               </div>
             </div>
