@@ -129,36 +129,40 @@
 		  
 		  background-repeat: repeat;
 		  background-attachment: fixed;
-		  min-height: 100vh;
 		  width: 100%;
 		}
     </style>
   </head>
   <body>
-  
-    <header id="mainNav" class="navbar-nav flex-grow-1 " style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(45,47,12,1.0), rgba(45,47,12,0.0)); height:20vh; ">
-        <!-- Row 1: Logo & Language -->
-        <div class="nav-top col-12" >
-			<div class="col-1">&nbsp;</div>
-            <a id="nav_Logo" class="navbar-brand col-2" >
-			  <img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:90%;max-width:none;padding:10px;">
-            </a>
-
-            <div id="nav_Btns" class="nav-bottom col-6" >
-            
-                <a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a>
-                <a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a>
-                <a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a>
-                <a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a>
-            </div>
-            <div class="lang-switcher col-3 nav-bottom">
-                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
-                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
-                <a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
-            </div>
-
-        </div>
+	
+    <header id="mainNav" class="navbar navbar-expand-lg" style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(12,12,6,1.0), rgba(12,12,6,0.0)); height:20vh; ">
+        
+		<div class="container-fluid" style="display:flex">
+			<a class="navbar-brand" href="#">
+				<img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:90%;max-width:40%;padding-top:10px;padding-left:10px;">
+			</a>
+			
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+		
+			<div class="collapse navbar-collapse" id="navMenu">
+			  <ul class="navbar-nav ms-auto">
+				<li class="nav-item"><a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a></li>
+				<li class="nav-item"><a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a></li>
+				<li class="nav-item"><a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a></li>
+				<li class="nav-item"><a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a></li>
+			  </ul>
+			</div>
+		
+	  </div>
+	  
     </header>
+	<div class="lang-switcher nav-bottom " style="position:fixed;right:10px;top:30px;z-index:2001">
+		<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
+		<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
+		<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
+	</div>
 	<div id="mainTextPopup2" style="position: fixed; top: 0px; left: 0px; width: 100vw; height: 100vh; z-index: 19999; background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;">
       <div class="box-container relative flex" style="position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;height:100vh;margin:auto;max-height:650px;padding:40px;max-width:1200px;background:rgb(12,12,6);color:#E1DBCB;z-index: 200000;">
         <button id="mainTextPopupClose" style="position:absolute;top:0;right:0;background:none;border:none;color:#A15A33;font-size:38px;z-index:2;cursor:pointer;padding:25px;" onclick="hideElement2()"><img src="../xmark.png" width="33"></button>
@@ -191,7 +195,7 @@
 				<br>
 				<h5>歡迎查詢最新資料</h5>
 				<div style="display:flex;justify-content: center; justify-content: space-between; margin-left:auto;margin-right:auto;width:280px">
-					<div style="justify-content: center;" >
+					<div style="justify-content: center" >
 						<h5 class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp:">透過 Whatsapp:</h5>
 						<a onclick="gtag_report_conversion(url)"
 							href="javascript:void(0);" 
@@ -268,9 +272,11 @@
       <div
         class=" text-center tbc-bg" style=top:0;width:90vw;margin-left:auto;margin-right:auto;background-image:url('lime_bg.jpg',scale:0.1);"
       >
-	  <div style="height:15vh"></div>
-	    <a class="navbar-brand col-2" >
-		  <img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:50%;max-width:none;padding:10px;filter: drop-shadow(0 0 10px white);">
+		<div style="height:15vh"></div>
+	    <a class="navbar-brand col-2 justify-content" style="position: relative; display: display: inline-block; width: fit-content;">
+		  <img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:70%;max-width:none;padding:10px;filter: drop-shadow(0 0 5px black); position:absolute; margin-left:auto; margin-right:auto;top:35%; left:-35%; z-index:2">
+		  <img src="New Project (6).png" alt="Lime Spark Logo" style="width:70%;max-width:none; ;width: 100%;height: auto; display: block; position: relative; z-index:1">
+		  
 		</a>
         <div class="col-md-6 p-lg-5 mx-auto my-5" style="color:white">
           <h1 class="display-3 fw-bold"
@@ -331,7 +337,7 @@
 			  </tr>
 			  <tr><td><br></td></tr>
 			  <tr>
-				<td class="text-wrap"
+				<td class="text-wrap" style="padding:5px"
 				data-en="Estimated Material Date" 
 				data-zh-hans="预计关键日期" 
 				data-zh-hant="預計關鍵日期">預計關鍵日期</td>
@@ -342,39 +348,226 @@
 				data-zh-hant="2027年04月30日">2027年04月30日</td>
 			  </tr>
 		  </table>
-          <div class="d-flex gap-3 justify-content-center lead fw-normal">
-            
-          </div>
         </div>
-		<div style="height:10vh"></div>
-        
+		<div style="height:5vh"></div>
       </div>
+	  
       <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <div
-          class="text-bg-dark me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-        >
-          <div class="my-3 py-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
-          </div>
-          <div
-            class="bg-body-tertiary shadow-sm mx-auto"
-            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-          ></div>
-        </div>
-        <div
-          class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
-        >
-          <div class="my-3 p-3">
-            <h2 class="display-5">Another headline</h2>
-            <p class="lead">And an even wittier subheading.</p>
-          </div>
-          <div
-            class="bg-dark shadow-sm mx-auto"
-            style="width: 80%; height: 300px; border-radius: 21px 21px 0 0"
-          ></div>
-        </div>
-      </div>
+        <section class="sticky-stack text-white" style="background-color:rgb(12,12,6)">
+		  <div class="container vh-100 align-items-center justify-content-center">
+			<h2 class="text-center mb-4" style="padding-top: 20px;padding-left: 20px;color:white;font-weight: 100;top: 100px;" data-en="Property Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Property Gallery</h2>
+        
+			<div class="slider-section">
+				<div class="slider-container">
+				  <div class="slider" id="drag-slider">
+					<!-- Images will be injected here automatically -->
+				  </div>
+				</div>
+
+				<!-- Lightbox Overlay -->
+				<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+				  <img id="lightbox-img" src="" alt="Zoomed view">
+				</div>
+			</div>
+		  </div>
+		  /*solely for photo ortation*/
+		<style type="text/css">
+        .slider-section{
+			overflow: hidden; 
+			position: relative;
+		}
+		.slider-container {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  height: 75vh;
+		  align-items: center; 
+		  perspective: 2500px;
+		  cursor: grab; /* Shows the hand icon */
+		  background: #12126;
+		  overflow: hidden;
+		  perspective-origin: 50% 50%;
+			transform: translateY(-20%); 
+		}
+
+		.slider-container:active {
+		  cursor: grabbing; /* Shows closed hand when clicking */
+		}
+
+		.slider {
+		  position: relative;
+		  width: 200px;
+		  height: 250px;
+		  transform-style: preserve-3d;
+		  transform-origin: center center; 
+		  transition: transform 0.1s ease-out; /* Smooths out the drag */
+		  will-change: transform; /* Optimizes for fast movement */
+		}
+
+		.slider span {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  width: 120%;
+		  height: 100%;
+		  transform-style: preserve-3d;
+		  /* (360 / 8 images = 45deg) */
+		  transform: rotateY(calc(var(--i) * 22.5deg)) translateZ(350px);
+		}
+
+		.slider span img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  border-radius: 10px;
+		  pointer-events: none; /* Prevents browser from "picking up" the image file */
+		}
+		.lightbox {
+		  display: none; /* Hidden by default */
+		  position: fixed;
+		  top: 0; left: 0;
+		  width: 100%; height: 100%;
+		  background: rgba(0,0,0,0.9);
+		  justify-content: center;
+		  align-items: center;
+		  z-index: 1000;
+		  cursor: zoom-out;
+		}
+
+		.lightbox img {
+		  max-width: 90%;
+		  max-height: 90%;
+		  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+		}
+
+		.slider span {
+		  cursor: pointer; /* Show it's clickable */
+		  position: absolute;
+		  top: 0; left: 0;
+		  width: 100%; height: 100%;
+		  backface-visibility: hidden; /* Stops flickering from the "back" of images */
+		}
+
+		.slider span img {
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  border-radius: 8px;
+		  /* Adds a faded reflection below the image */
+		  -webkit-box-reflect: below 5px linear-gradient(transparent, transparent, rgba(0,0,0,0.2));
+		}
+
+        </style>
+        <script type="text/javascript">
+            // --- MANAGE YOUR IMAGES HERE ---
+		const imageSources = [
+		  "1.jpeg", "2.jpeg",  
+		  "3.jpeg", "4.jpeg", "5.jpeg", "6.jpeg",
+		  "7.jpeg", "8.jpeg", "9.jpeg",
+		  "10.png", "11.png", "12.png"
+		];
+
+		const slider = document.getElementById('drag-slider');
+		const imgWidth = 200; // Match this to your CSS width
+
+		function initSlider() {
+		  const n = imageSources.length;
+		  const angleStep = 360 / n;
+		  
+		  // CALCULATE RADIUS: This prevents overlapping
+		  // It moves images further out as the count (n) increases
+		  const radius = Math.round((imgWidth / 2) / Math.tan(Math.PI / n)) + 20; 
+
+		  slider.innerHTML = imageSources.map((src, i) => `
+			<span style="transform: rotateY(${i * angleStep}deg) translateZ(${radius}px);">
+			  <img src="${src}" onclick="openLightbox('${src}')">
+			</span>
+		  `).join('');
+		}
+
+		// 2. CLICK TO OPEN FUNCTION
+		function openLightbox(src) {
+		  const lb = document.getElementById('lightbox');
+		  const lbImg = document.getElementById('lightbox-img');
+		  lbImg.src = src;
+		  lb.style.display = 'flex';
+		}
+
+		function closeLightbox() {
+		  document.getElementById('lightbox').style.display = 'none';
+		}
+
+		// 3. EASE & DRAG LOGIC (From previous version)
+		let isDragging = false;
+		let startX = 0, rotation = 0, velocity = 0;
+
+		const baseSpeed = 0.1; // Adjust this for "Idle" rotation speed
+		const friction = 0.96; // How quickly the "flick" slows down
+
+		function update() {
+		  if (!isDragging) {
+			velocity *= friction;
+			rotation += (baseSpeed + velocity);
+		  }else {
+			// If dragging, we update rotation based on movement (handled in mousemove)
+			rotation += velocity; 
+		  }
+		  slider.style.transform = `rotateY(${rotation}deg)`;
+		  requestAnimationFrame(update);
+		}
+
+		const container = document.querySelector('.slider-container');
+		container.addEventListener('mousedown', (e) => {
+		  isDragging = true;
+		  startX = e.pageX;
+		  velocity = 0; // Kill the flick momentum when user grabs it
+		});
+		window.addEventListener('mousemove', (e) => {
+		  if (!isDragging) return;
+		  const x = e.pageX;
+		  const diff = (x - startX) * 0.15; // Drag sensitivity
+		  velocity = diff;
+		  startX = x;
+		});
+		window.addEventListener('mouseup', () => 
+		  isDragging = false);
+		// Initialize the loop and images
+		initSlider();
+		update();
+
+        </script>
+		/*End of photo rotation*/
+		</section>
+
+		<section class="sticky-stack bg-light text-dark">
+		  <div class="container vh-100 d-flex align-items-center justify-content-center">
+			<h1>Premier Living by SHKP</h1>
+		  </div>
+		</section>
+
+		<section class="sticky-stack bg-secondary text-white">
+		  <div class="container vh-100 d-flex align-items-center justify-content-center">
+			<h1>Register Your Interest</h1>
+		  </div>
+		</section>
+		<style type="text/css">
+		.sticky-stack {
+		  position: sticky;
+		  top: 0;           /* This "locks" the section at the top */
+		  height: 100vh;    /* Ensures each section is full-screen */
+		  width: 100%;
+		  border-top-left-radius: 20px;
+		  border-top-right-radius: 20px;
+		  box-shadow: 0 -10px 20px rgba(0,0,0,0.5); /* Adds a shadow to show the overlap */
+		}
+
+		/* Optional: Add background colors for your dark green theme */
+		.bg-dark-green {
+		  background-color: #002b1c;
+		}
+		</style>
+		
+		
       <!--div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <div
           class="bg-body-tertiary me-md-3 pt-3 px-3 pt-md-5 px-md-5 text-center overflow-hidden"
