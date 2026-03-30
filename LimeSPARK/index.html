@@ -402,7 +402,7 @@
 		<div style="height:5vh"></div>
       </div>
 	  
-      <div class="d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
+      <div class="sticky-container d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
         <section class="sticky-stack text-white" style="background-color:rgb(12,12,6)">
 		  <div class="container vh-100 align-items-center justify-content-center">
 			<h2 class="text-center mb-4" style="padding-top: 20px;padding-left: 20px;color:white;font-weight: 100;top: 100px;" data-en="Property Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Property Gallery</h2>
@@ -601,19 +601,22 @@
 		  </div>
 		</section>
 		<style type="text/css">
-		.sticky-stack {1
+		.sticky-stack {
+		  position: -webkit-sticky;
 		  position: sticky;
 		  top: 0;           /* This "locks" the section at the top */
 		  height: 100vh;    /* Ensures each section is full-screen */
 		  width: 100%;
+		  display: block;  
+		  background-color: inherit;
 		  border-top-left-radius: 20px;
 		  border-top-right-radius: 20px;
 		  box-shadow: 0 -10px 20px rgba(0,0,0,0.5); /* Adds a shadow to show the overlap */
 		}
-
-		/* Optional: Add background colors for your dark green theme */
-		.bg-dark-green {
-		  background-color: #002b1c;
+		
+		.sticky-container {
+		  display: block !important; 
+		  overflow: visible !important;
 		}
 		</style>
 		
