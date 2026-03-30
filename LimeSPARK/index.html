@@ -135,26 +135,76 @@
   </head>
   <body>
 	
-    <header id="mainNav" class="navbar navbar-expand-lg" style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(12,12,6,1.0), rgba(12,12,6,0.0)); height:20vh; ">
+    <header id="mainNav" class="navbar navbar-expand-lg navbar-dark" style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(12,12,6,1.0), rgba(12,12,6,0.0)); height:20vh; ">
         
-		<div class="container-fluid" style="display:flex">
+		<div class="container-fluid d-flex align-items-center" style="display:flex">
 			<a class="navbar-brand" href="#">
 				<img src="LimeSpark_lime.svg" alt="Lime Spark Logo" style="width:90%;max-width:40%;padding-top:10px;padding-left:10px;">
 			</a>
-			
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-			  <span class="navbar-toggler-icon"></span>
-			</button>
-		
-			<div class="collapse navbar-collapse" id="navMenu">
-			  <ul class="navbar-nav ms-auto">
-				<li class="nav-item"><a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a></li>
-				<li class="nav-item"><a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a></li>
-				<li class="nav-item"><a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a></li>
-				<li class="nav-item"><a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a></li>
-			  </ul>
+			<div class="container-fluid d-flex align-items-center">
+				<button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+
+				<!-- The Menu that expands to the right -->
+				<div class="collapse navbar-collapse horizontal-menu" id="navMenu">
+				  <ul class="navbar-nav d-flex flex-row" >
+					<li class="nav-item"><a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a></li>
+				  </ul>
+				</div>
 			</div>
-		
+		<style >
+		/* 1. Force the container to be a row and stay next to the button */
+		.navbar-collapse.horizontal-menu {
+		  display: none; /* Hidden by default */
+		  flex-basis: auto; 
+		  flex-grow: 0;
+		  margin-left: 10px; /* Moves words closer to button */
+		}
+
+		/* 2. Remove Bootstrap's vertical 'slide' which causes the flicker */
+		.collapsing.horizontal-menu {
+		  display: flex !important; /* Forces same row during transition */
+		  height: auto !important; 
+		  width: 0;
+		  transition: width 0.3s ease, opacity 0.3s ease !important;
+		  overflow: hidden;
+		}
+
+		/* 3. Open State Animation */
+		.collapse.horizontal-menu.show {
+		  display: flex !important;
+		  width: auto;
+		  animation: slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+		}
+
+		/* 4. Close Animation (Slide back) */
+		/* Custom logic to reverse it when the 'show' class is removed */
+		.collapsing.horizontal-menu:not(.show) {
+		  animation: slideBack 0.3s ease-in forwards;
+		}
+
+		@keyframes slideOut {
+		  from { opacity: 0; transform: translateX(-15px); }
+		  to { opacity: 1; transform: translateX(0); }
+		}
+
+		@keyframes slideBack {
+		  from { opacity: 1; transform: translateX(0); }
+		  to { opacity: 0; transform: translateX(-15px); }
+		}
+
+		/* 5. Clean up Nav Links */
+		.horizontal-menu .navbar-nav {
+		  flex-direction: row !important;
+		  gap: 1.5rem;
+		  white-space: nowrap;
+		}
+
+		</style>
 	  </div>
 	  
     </header>
@@ -551,7 +601,7 @@
 		  </div>
 		</section>
 		<style type="text/css">
-		.sticky-stack {
+		.sticky-stack {1
 		  position: sticky;
 		  top: 0;           /* This "locks" the section at the top */
 		  height: 100vh;    /* Ensures each section is full-screen */
@@ -749,11 +799,11 @@
 			let message = "";
 
 			if (lang === 'en') {
-				message = "Hi, I would like to book a visit to Lime Spark.";
+				message = "Hi, I would like to book a visit to LimeSPARK.";
 			} else if (lang === 'zh-hans') {
-				message = "你好，我想预约参观首汇。请提供更多详情。";
+				message = "你好，我想预约参观形瑨。请提供更多详情。";
 			} else if (lang === 'zh-hant') {
-				message = "你好，我想預約參觀首匯。請提供更多詳情。";
+				message = "你好，我想預約參觀形瑨。請提供更多詳情。";
 			}
 
 			// Encode the message for the URL
@@ -770,24 +820,24 @@
 		function whatsappLangChange(lang){
 			const btn = document.getElementById('whatsappBtn');
 			const btn2 = document.getElementById('whatsappBtn2');
-			var waUrl1 = "https://wa.me/85294539918?text=" + encodeURIComponent("Hi, I would like to book a visit to Chester.");
-			var waUrl2 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想预约参观首汇。请提供更多详情。");
-			var waUrl3 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想預約參觀首匯。請提供更多詳情。");
+			var waUrl1 = "https://wa.me/85294539918?text=" + encodeURIComponent("Hi, I would like to book a visit to LimeSPARK.");
+			var waUrl2 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想预约参观形瑨。请提供更多详情。");
+			var waUrl3 = "https://wa.me/85294539918?text=" + encodeURIComponent("你好，我想預約參觀形瑨。請提供更多詳情。");
 
 			console.log("the lang now is : "+lang);
 			if (lang === 'en') {
-				btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
-				btn2.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to Chester.');
+				btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to LimeSPARK.');
+				btn2.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to LimeSPARK.');
 				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
 				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
 			} else if (lang === 'zh-hans') {
-				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
-				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观首汇。请提供更多详情。');
+				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观形瑨。请提供更多详情。');
+				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观形瑨。请提供更多详情。');
 				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
 				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
 			} else if (lang === 'zh-hant') {
-				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
-				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀首匯。請提供更多詳情。');
+				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。');
+				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。');
 				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
 				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
 			}
@@ -802,19 +852,6 @@
             localStorage.setItem('siteLang', lang);
             whatsappLangChange(lang);
         }
-
-        // Fade Navbar Logic
-        const navlog = document.getElementById('nav_Logo');
-        const navbtn = document.getElementById('nav_Btns');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navlog.classList.add('hidden');
-                navbtn.classList.add('hidden');
-            } else {
-                navlog.classList.remove('hidden');
-                navbtn.classList.remove('hidden');
-            }
-        });
 
         // Init
         window.onload = () => {
