@@ -238,7 +238,7 @@
 			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
 		</div>
 		<div class="lang-switcher nav-bottom " style="position:fixed;right:0px;top:60px;z-index:2001">
-		<a onclick="gtag_report_conversion()"
+		<a onclick="gtag_report_conversion(url)"
 			href="javascript:void(0);"
 		   id="whatsappBtn2"
 		   class="btn-whatsapp" target="_blank" style="
@@ -285,7 +285,7 @@
 				<div style="display:flex;justify-content: center; justify-content: space-between; margin-left:auto;margin-right:auto;width:280px">
 					<div style="justify-content: center" >
 						<h5 class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp:">透過 Whatsapp:</h5>
-						<a onclick="gtag_report_conversion()"
+						<a onclick="gtag_report_conversion(url)"
 							href="javascript:void(0);" 
 							id="whatsappBtn"
 							class="btn-whatsapp-contactus"
@@ -707,7 +707,7 @@
 				<div class="col-12" style="justify-content: center; align-items:center">
 					<p class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp">透過 Whatsapp:</p>
 					<div style="display:flex;justify-content: center;">
-						<a onclick="gtag_report_conversion()" 
+						<a onclick="gtag_report_conversion(url)" 
 						href="javascript:void(0);" id="whatsappBtn" 
 						class="btn-whatsapp-contactus" target="_blank">
 							<img src="../WhatsApp_Logo.png" alt="WA" width="20">
@@ -758,7 +758,7 @@
         data-en="Book your visit today" data-zh-hans="今日预约参观" data-zh-hant="今日預約參觀">Book your visit today</span>
         <!-- WHATSAPP BOOKING BUTTON -->
         <div class="text-center ">
-            <a onclick="gtag_report_conversion()"
+            <a onclick="gtag_report_conversion(url)"
                 href="javascript:void(0);"
                id="whatsappBtn2"
                class="btn-whatsapp" target="_blank" style="
@@ -829,20 +829,24 @@
         </style>
 
         <!-- Event snippet for Book appointment conversion page
-        In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+        In your html page, add the snippet and call  when someone clicks on the chosen link or button. -->
         <script>
-        function gtag_report_conversion(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          };
-          gtag('event', 'conversion', {
-              'send_to': '',
-              'event_callback': callback
-          });
-          return false;
-        }
+        <!-- Event snippet for Book appointment conversion page
+			In your html page, add the snippet and call  when someone clicks on the chosen link or button. -->
+			
+			function (url) {
+			  var callback = function () {
+			    if (typeof(url) != 'undefined') {
+			      window.location = url;
+			    }
+			  };
+			  gtag('event', 'conversion', {
+			      'send_to': 'AW-18037037156/DifUCPCxpo8cEOSw3ZhD',
+			      'event_callback': callback
+			  });
+			  return false;
+			}
+
         </script>
     </footer>
     <script
@@ -885,18 +889,18 @@
 			if (lang === 'en') {
 				btn.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to LimeSPARK.');
 				btn2.setAttribute('href', 'https://wa.me/85294539918?text=Hi, I would like to book a visit to LimeSPARK.');
-				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
-				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+				btn.setAttribute('onclick', "return ('" + waUrl1 + "');");
+				btn2.setAttribute('onclick', "return ('" + waUrl1 + "');");
 			} else if (lang === 'zh-hans') {
 				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观形瑨。请提供更多详情。');
 				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想预约参观形瑨。请提供更多详情。');
-				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
-				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+				btn.setAttribute('onclick', "return ('" + waUrl2 + "');");
+				btn2.setAttribute('onclick', "return ('" + waUrl2 + "');");
 			} else if (lang === 'zh-hant') {
 				btn.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。');
 				btn2.setAttribute('href', 'https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。');
-				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
-				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+				btn.setAttribute('onclick', "return ('" + waUrl3 + "');");
+				btn2.setAttribute('onclick', "return ('" + waUrl3 + "');");
 			}
 		}
         // Language Logic
