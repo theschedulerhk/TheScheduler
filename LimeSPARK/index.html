@@ -162,10 +162,10 @@
 				<!-- The Menu that expands to the right -->
 				<div class="collapse navbar-collapse horizontal-menu" id="navMenu">
 				  <ul class="navbar-nav d-flex flex-row" >
-					<li class="nav-item"><a style="white-space:nowrap;" onclick="scrollToSection('gallery')" href="javascript:void(0)" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a></li>
-					<li class="nav-item"><a style="white-space:nowrap;" onclick="scrollToSection('location')" href="javascript:void(0)" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a></li>
-					<li class="nav-item"><a style="white-space:nowrap;" onclick="scrollToSection('units')" href="javascript:void(0)" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a></li>
-					<li class="nav-item"><a style="white-space:nowrap;" onclick="scrollToSection('contactUs')" href="javascript:void(0)" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#gallery" class="nav-btn" data-en="Gallery" data-zh-hans="相片集" data-zh-hant="相片集">Gallery</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#location" class="nav-btn" data-en="Location" data-zh-hans="项目地点" data-zh-hant="項目地點">Location</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#units" class="nav-btn" data-en="Unit Types" data-zh-hans="户型分布" data-zh-hant="戶型分佈">Unit Types</a></li>
+					<li class="nav-item"><a style="white-space:nowrap;" href="#contactUs" class="nav-btn" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">Contact Us</a></li>
 				  </ul>
 				</div>
 			</div>
@@ -337,6 +337,7 @@
       >
 		<div style="height:15vh"></div>
 	    <a class="navbar-brand col-2 justify-content" style="position: relative; display: display: inline-block; width: fit-content;">
+		  
 		  <img src="New Project (6).png" alt="Lime Spark Logo" style="width:70%;max-width:none; ;width: 100%;height: auto; display: block; position: relative; z-index:1">
 		  
 		</a>
@@ -413,9 +414,9 @@
         </div>
 		<div style="height:5vh"></div>
       </div>
-	  
+	  <div id="gallery"></div>
       <div class="sticky-container d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <section id="gallery" class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(25,21,6,1.0) 0%, rgba(25,21,6,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
+        <section  class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(25,21,6,1.0) 0%, rgba(25,21,6,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
 		  <div class="container vh-100 align-items-center justify-content-center">
 			
 			<h2 class="text-center mb-4" style=";padding-top:3%;color:white;font-weight: 100;top: 100px;" data-en="Property Gallery" data-zh-hant="相片集" data-zh-hans	="相片集">Property Gallery</h2>
@@ -602,8 +603,9 @@
 		<!--End of photo rotation-->
 		
 		</section>
-
-		<section id="location" class="fluid-container sticky-stack  text-dark" style="background: linear-gradient(to bottom, rgba(220,220,100,1.0) 0%, rgba(220,220,100,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
+		
+		<div id="location" ></div>
+		<section class="fluid-container sticky-stack  text-dark" style="background: linear-gradient(to bottom, rgba(220,220,100,1.0) 0%, rgba(220,220,100,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
 		  <div class="container vh-100 align-items-center justify-content-center">
 				<h1 class="text-center mb-4" style=";padding-top:3%;color:rgb(24,24,12);font-weight: 100;top: 100px;" data-en="Location" data-zh-hant="項目地點" data-zh-hans	="项目地点">Location</h1>
 				<div class="d-flex align-items-center justify-content-center" style="width:100% ">
@@ -644,7 +646,8 @@
 		  </div>
 		</section>
 		
-		<section id="units" class="fluid-container sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(22,31,5,1.0) 0%, rgba(22,31,5,1.0) 80%,rgba(67, 74, 7, 1.0)) 100%;">
+		<div id="units" ></div>
+		<section class="fluid-container sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(22,31,5,1.0) 0%, rgba(22,31,5,1.0) 80%,rgba(67, 74, 7, 1.0)) 100%;">
 		  <div class="container vh-100 align-items-center justify-content-center">
 			<div style="width:100%;text-align: center;">
 				<h2 class="text-center mb-4" style=";padding-top:3%;color:white;font-weight: 100;top: 100px;" data-en="Unit Types" data-zh-hans="戶型分佈" data-zh-hant="戶型分佈">Unit Types</h2>
@@ -665,7 +668,8 @@
 		  </div>
 		</section>
 		
-		<section id="contactUs" class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(0,0,0,1.0) 0%, rgba(0,0,0,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
+		<div id="contactUs" ></div>
+		<section class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(0,0,0,1.0) 0%, rgba(0,0,0,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
 			
 			<div style="height:10%"></div>
 			<div class="container d-flex flex-column vh-100 align-items-center justify-content-center v">
@@ -721,18 +725,6 @@
 		  font-size: clamp(1rem, 2.5vw, 2rem);
 		}
 		</style>
-		<script>
-		
-		function scrollToSection(sectionId) {
-			window.location.hash = "#";
-			
-			setTimeout(() => {
-				window.location.hash = sectionId;
-			}, 10); 
-		}
-
-
-		</script>
 		
     </main>
     <footer class="sticky-footer" style="">
