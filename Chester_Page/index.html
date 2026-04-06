@@ -655,7 +655,7 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
         data-en="Book your visit today" data-zh-hans="今日预约参观" data-zh-hant="今日預約參觀">Book your visit today</span>
         <!-- WHATSAPP BOOKING BUTTON -->
         <div class="text-center ">
-            <a onclick="gtag_report_conversion(url)"
+            <a onclick="gtag_report_conversion('https://wa.me/85294539918&text=' + encodeURIComponent('你好，我想預約參觀首匯。請提供更多詳情。'));"                
                 href="javascript:void(0);"
                id="whatsappBtn2"
                class="btn-whatsapp" target="_blank" style="">
@@ -775,20 +775,20 @@ src="https://www.facebook.com/tr?id=919170820907323&ev=PageView&noscript=1"
 
             console.log("the lang now is : "+lang);
             if (lang === 'en') {
-                btn.setAttribute('href', waUrl1);
-                btn2.setAttribute('href', waUrl1);
-                //btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
-                //btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+                //btn.setAttribute('href', waUrl1);
+                //btn2.setAttribute('href', waUrl1);
+                btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+                btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
             } else if (lang === 'zh-hans') {
-                btn.setAttribute('href', waUrl2);
-                btn2.setAttribute('href', 2);
-                //btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
-                //btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+                //btn.setAttribute('href', waUrl2);
+                //btn2.setAttribute('href', 2);
+                btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+                btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
             } else if (lang === 'zh-hant') {
-                btn.setAttribute('href', waUrl3);
-                btn2.setAttribute('href', waUrl3);
-                //btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
-                //btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+                //btn.setAttribute('href', waUrl3);
+                //btn2.setAttribute('href', waUrl3);
+                btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+                btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
             }
         }
         // Language Logic
