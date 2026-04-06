@@ -866,6 +866,18 @@
       class="astro-vvvwv3sm"
     ></script>
 	<script>
+		function gtag_report_conversion(url) {
+          var callback = function () {
+            if (typeof(url) != 'undefined') {
+              window.location = url;
+            }
+          };
+          gtag('event', 'conversion', {
+              'send_to': 'AW-18037037156/DifUCPCxpo8cEOSw3ZhD',
+              'event_callback': callback
+          });
+          return false;
+        }
 		// Logic to update the WhatsApp pre-filled text based on language
 		function updateWhatsAppLink(lang) {
 			const btn = document.getElementById('whatsappBtn');
@@ -902,32 +914,32 @@
 
 			console.log("the lang now is : "+lang);
 			if (lang === 'en') {
-				btn.setAttribute('href', waUrl1);
+				/*btn.setAttribute('href', waUrl1);
 				btn1.setAttribute('href', waUrl1);
 				btn2.setAttribute('href', waUrl1);
-				btn3.setAttribute('href', waUrl1);
-				//btn.setAttribute('onclick', "return ('" + waUrl1 + "');");
-				//btn1.setAttribute('onclick', "return ('" + waUrl1 + "');");
-				//btn2.setAttribute('onclick', "return ('" + waUrl1 + "');");
-				//btn3.setAttribute('onclick', "return ('" + waUrl1 + "');");
+				btn3.setAttribute('href', waUrl1);*/
+				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+				btn1.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
+				btn3.setAttribute('onclick', "return gtag_report_conversion('" + waUrl1 + "');");
 			} else if (lang === 'zh-hans') {
-				btn.setAttribute('href', waUrl2);
+				/*btn.setAttribute('href', waUrl2);
 				btn1.setAttribute('href', waUrl2);
 				btn2.setAttribute('href', waUrl2);
-				btn3.setAttribute('href', waUrl2);
-				//btn.setAttribute('onclick', "return ('" + waUrl2 + "');");
-				//btn1.setAttribute('onclick', "return ('" + waUrl2 + "');");
-				//btn2.setAttribute('onclick', "return ('" + waUrl2 + "');");
-				//btn3.setAttribute('onclick', "return ('" + waUrl2 + "');");
+				btn3.setAttribute('href', waUrl2);*/
+				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+				btn1.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
+				btn3.setAttribute('onclick', "return gtag_report_conversion('" + waUrl2 + "');");
 			} else if (lang === 'zh-hant') {
-				btn.setAttribute('href', waUrl3);
+				/*btn.setAttribute('href', waUrl3);
 				btn1.setAttribute('href', waUrl3);
 				btn2.setAttribute('href', waUrl3);
-				btn3.setAttribute('href', waUrl3);
-				//btn.setAttribute('onclick', "return ('" + waUrl3 + "');");
-				//btn1.setAttribute('onclick', "return ('" + waUrl3 + "');");
-				//btn2.setAttribute('onclick', "return ('" + waUrl3 + "');");
-				//btn3.setAttribute('onclick', "return ('" + waUrl3 + "');");
+				btn3.setAttribute('href', waUrl3);*/
+				btn.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+				btn1.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+				btn2.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
+				btn3.setAttribute('onclick', "return gtag_report_conversion('" + waUrl3 + "');");
 			}
 		}
         // Language Logic
