@@ -2,7 +2,7 @@
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
   <head>
-	  <!-- Google tag (gtag.js) -->
+	  <!-- Google tag (.js) -->
 		<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18037037156"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
@@ -238,8 +238,8 @@
 			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
 		</div>
 		<div class="lang-switcher nav-bottom " style="position:fixed;right:0px;top:60px;z-index:2001">
-		<a onclick="gtag_report_conversion(url)"
-			href="javascript:void(0);"
+		<a onclick="gtag_report_conversion()"
+            href="https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。";
 		   id="whatsappBtn1"
 		   class="btn-whatsapp" target="_blank" style="
 			padding: 8px 16px;">
@@ -285,8 +285,8 @@
 				<div style="display:flex;justify-content: center; justify-content: space-between; margin-left:auto;margin-right:auto;width:280px">
 					<div style="justify-content: center" >
 						<h5 class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp:">透過 Whatsapp:</h5>
-						<a onclick="gtag_report_conversion(url)"
-							href="javascript:void(0);" 
+						<a onclick="gtag_report_conversion()"
+                			href="https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。";
 							id="whatsappBtn"
 							class="btn-whatsapp-contactus"
 							target="_blank">
@@ -719,8 +719,8 @@
 				<div class="col-12" style="justify-content: center; align-items:center">
 					<p class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp">透過 Whatsapp:</p>
 					<div style="display:flex;justify-content: center;">
-						<a onclick="gtag_report_conversion(url)" 
-						href="javascript:void(0);" id="whatsappBtn2" 
+						<a onclick="gtag_report_conversion()" 
+                		href="https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。";
 						class="btn-whatsapp-contactus" target="_blank">
 							<img src="../WhatsApp_Logo.png" alt="WA" width="20">
 							<span style="font-weight: 200;">Whatsapp</span>
@@ -770,8 +770,8 @@
         data-en="Book your visit today" data-zh-hans="今日预约参观" data-zh-hant="今日預約參觀">Book your visit today</span>
         <!-- WHATSAPP BOOKING BUTTON -->
         <div class="text-center ">
-            <a onclick="gtag_report_conversion(url)"
-                href="javascript:void(0);"
+            <a onclick="gtag_report_conversion()"
+                href="https://wa.me/85294539918?text=你好，我想預約參觀形瑨。請提供更多詳情。";
                id="whatsappBtn3"
                class="btn-whatsapp" target="_blank" style="
                 padding: 10px 22px;">
@@ -842,41 +842,19 @@
 
         <!-- Event snippet for Book appointment conversion page
         In your html page, add the snippet and call  when someone clicks on the chosen link or button. -->
-        <script>
-        <!-- Event snippet for Book appointment conversion page
-			In your html page, add the snippet and call  when someone clicks on the chosen link or button. -->
-			
-			function (url) {
-			  var callback = function () {
-			    if (typeof(url) != 'undefined') {
-			      window.location = url;
-			    }
-			  };
-			  gtag('event', 'conversion', {
-			      'send_to': 'AW-18037037156/DifUCPCxpo8cEOSw3ZhD',
-			      'event_callback': callback
-			  });
-			  return false;
-			}
-
-        </script>
+        
     </footer>
     <script
       src="../assets/dist/js/bootstrap.bundle.min.js"
       class="astro-vvvwv3sm"
     ></script>
 	<script>
-		function gtag_report_conversion(url) {
-          var callback = function () {
-            if (typeof(url) != 'undefined') {
-              window.location = url;
-            }
-          };
-          gtag('event', 'conversion', {
-              'send_to': 'AW-18037037156/DifUCPCxpo8cEOSw3ZhD',
-              'event_callback': callback
+		function _report_conversion() {
+          
+          ('event', 'conversion', {
+              'send_to': 'AW-18037037156/DifUCPCxpo8cEOSw3ZhD'
           });
-          return false;
+          return true;
         }
 		// Logic to update the WhatsApp pre-filled text based on language
 		function updateWhatsAppLink(lang) {
@@ -914,32 +892,32 @@
 
 			console.log("the lang now is : "+lang);
 			if (lang === 'en') {
-				/*btn.setAttribute('href', waUrl1);
+				btn.setAttribute('href', waUrl1);
 				btn1.setAttribute('href', waUrl1);
 				btn2.setAttribute('href', waUrl1);
-				btn3.setAttribute('href', waUrl1);*/
-				btn.setAttribute('onclick', " gtag_report_conversion('" + waUrl1 + "');");
-				btn1.setAttribute('onclick', " gtag_report_conversion('" + waUrl1 + "');");
-				btn2.setAttribute('onclick', " gtag_report_conversion('" + waUrl1 + "');");
-				btn3.setAttribute('onclick', " gtag_report_conversion('" + waUrl1 + "');");
+				btn3.setAttribute('href', waUrl1);
+				/*btn.setAttribute('onclick', " _report_conversion('" + waUrl1 + "');");
+				btn1.setAttribute('onclick', " _report_conversion('" + waUrl1 + "');");
+				btn2.setAttribute('onclick', " _report_conversion('" + waUrl1 + "');");
+				btn3.setAttribute('onclick', " _report_conversion('" + waUrl1 + "');");*/
 			} else if (lang === 'zh-hans') {
-				/*btn.setAttribute('href', waUrl2);
+				btn.setAttribute('href', waUrl2);
 				btn1.setAttribute('href', waUrl2);
 				btn2.setAttribute('href', waUrl2);
-				btn3.setAttribute('href', waUrl2);*/
-				btn.setAttribute('onclick', " gtag_report_conversion('" + waUrl2 + "');");
-				btn1.setAttribute('onclick', " gtag_report_conversion('" + waUrl2 + "');");
-				btn2.setAttribute('onclick', " gtag_report_conversion('" + waUrl2 + "');");
-				btn3.setAttribute('onclick', " gtag_report_conversion('" + waUrl2 + "');");
+				btn3.setAttribute('href', waUrl2);
+				/*btn.setAttribute('onclick', " _report_conversion('" + waUrl2 + "');");
+				btn1.setAttribute('onclick', " _report_conversion('" + waUrl2 + "');");
+				btn2.setAttribute('onclick', " _report_conversion('" + waUrl2 + "');");
+				btn3.setAttribute('onclick', " _report_conversion('" + waUrl2 + "');");*/
 			} else if (lang === 'zh-hant') {
-				/*btn.setAttribute('href', waUrl3);
+				btn.setAttribute('href', waUrl3);
 				btn1.setAttribute('href', waUrl3);
 				btn2.setAttribute('href', waUrl3);
-				btn3.setAttribute('href', waUrl3);*/
-				btn.setAttribute('onclick', " gtag_report_conversion('" + waUrl3 + "');");
-				btn1.setAttribute('onclick', " gtag_report_conversion('" + waUrl3 + "');");
-				btn2.setAttribute('onclick', " gtag_report_conversion('" + waUrl3 + "');");
-				btn3.setAttribute('onclick', " gtag_report_conversion('" + waUrl3 + "');");
+				btn3.setAttribute('href', waUrl3);
+				/*btn.setAttribute('onclick', " _report_conversion('" + waUrl3 + "');");
+				btn1.setAttribute('onclick', " _report_conversion('" + waUrl3 + "');");
+				btn2.setAttribute('onclick', " _report_conversion('" + waUrl3 + "');");
+				btn3.setAttribute('onclick', " _report_conversion('" + waUrl3 + "');");*/
 			}
 		}
         // Language Logic
