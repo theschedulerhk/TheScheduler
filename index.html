@@ -4,80 +4,102 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>initiateHome</title>
-    <link rel="stylesheet" href="css/style.css">
 </head>
-<body style = "background-color: navyblue">
-    <div class="display:flex;">
-        <h1>The Scheduler Collection</h1>
-        <a>
-            <img scr="Chester_Page/Scheduler_logo.svg"/>
-        </a>
-    </div>
-    
-    <div >
-        <a href="Chester_Page/index.html">
-            <p>Chester 首匯<p>
-        </a>
-        <a href="LimeSPARK/index.html">
-            <p>LimeSpark 形瑨<p>
-        </a>
-    </div>
-    <canvas id="bgCanvas" style="width:100%;height:100%; position:floating; z-index:-1" ></canvas>
-  <script>
-    const canvas = document.getElementById('bgCanvas');
-    const ctx = canvas.getContext('2d');
+<body style="background-color: navyblue; text-align:center">
+	<section style="color:white;min-height:100vh">
+	<br>
+		<div class="">
+			<img src="TheScheduler_w_logo.svg" style="width:200px;overflow: visible;" >
+		</div>
+		<hr/>
+		<br>
+		<a href="Chester_Page/index.html">
+			<img src="Chester_Page/Chester_logo_w.svg" alt="Chester" width="200" >
+		</a>
+		<br>
+		<br>
+		<br>
+		<a href="LimeSPARK/index.html">
+			<img src="LimeSPARK/LimeSpark_lime.svg" style="width:190px;" >
+		</a>
+	</section>
+	<br>
+	<br>
+	<br>
+	<section style="color:white;min-height:100vh">
+		<div class="">
+		<br>
+			<a>
+				<img src="TheSchedulerLegacy_w_logo.svg" style="width:200px;overflow: visible;"/>
+			</a>
+		</div>
+		<hr/>
+		<br>
+		<div >
+			<a href="Chester_Page/index.html">
+				<p>Chester 首匯<p>
+			</a>
+			<a href="LimeSPARK/index.html">
+				<p>LimeSpark 形瑨<p>
+			</a>
+		</div>
+	</section>
+    <canvas id="bgCanvas" style="width:100%;height:100%; position:fixed; top:0; left:0; z-index:-1" ></canvas>
+	<script>
+		const canvas = document.getElementById('bgCanvas');
+		const ctx = canvas.getContext('2d');
 
-    function render() {
-      // 1. 自動填滿視窗
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+		function render() {
+		  // 1. 自動填滿視窗
+		  canvas.width = window.innerWidth;
+		  canvas.height = window.innerHeight;
 
-      // 2. 設定深藍色基調 (隨機偏移讓每次顏色略有不同)
-      const baseHue = 210 + Math.random() * 20; // 藍色區間
-      const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, `hsl(${baseHue}, 80%, 10%)`); // 深藍黑
-      gradient.addColorStop(1, `hsl(${baseHue}, 100%, 5%)`);
-      ctx.fillStyle = gradient;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
+		  // 2. 設定深藍色基調 (隨機偏移讓每次顏色略有不同)
+		  const baseHue = Math.random() * 255; // 藍色區間
+		  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+		  gradient.addColorStop(0, `hsl(${baseHue}, 100%, 0%)`); // 深藍黑
+		  gradient.addColorStop(1, `hsl(${baseHue}, 50%, 5%)`);
+		  ctx.fillStyle = gradient;
+		  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // 3. 渲染隨機「布料/水流」纹理
-      // 使用疊加的大量細長曲線來模擬纖維或水流感
-      ctx.globalCompositeOperation = 'lighter';
-      const lineCount = 150 + Math.random() * 100;
-      
-      for (let i = 0; i < lineCount; i++) {
-        ctx.beginPath();
-        ctx.lineWidth = Math.random() * 2;
-        ctx.strokeStyle = `hsla(${baseHue}, 50%, 30%, ${Math.random() * 0.15})`;
-        
-        let x = Math.random() * canvas.width;
-        let y = -50;
-        ctx.moveTo(x, y);
+		  // 3. 渲染隨機「布料/水流」纹理
+		  // 使用疊加的大量細長曲線來模擬纖維或水流感
+		  ctx.globalCompositeOperation = 'lighter';
+		  const lineCount = 240 + Math.random() * 100;
+		  
+		  for (let i = 0; i < lineCount; i++) {
+			ctx.beginPath();
+			ctx.lineWidth = Math.random() * 10;
+			ctx.strokeStyle = `hsla(${baseHue}, 90%, 10%, ${Math.random() * 0.15})`;
+			
+			let x = Math.random() * canvas.width;
+			let y = -50;
+			ctx.moveTo(x, y);
 
-        // 隨機抖動路徑 (類布料纖維)
-        const wave = Math.random() * 50 + 20;
-        while (y < canvas.height + 50) {
-          y += 5;
-          x += Math.sin(y / wave + (Math.random() * 2)) * 2;
-          ctx.lineTo(x, y);
-        }
-        ctx.stroke();
-      }
+			// 隨機抖動路徑 (類布料纖維)
+			const wave = Math.random() * 50 + 20;
+			while (y < canvas.height + 50) {
+			  y += 2;
+			  x += Math.sin(y / wave + (Math.random() * 2)) * Math.random()*3;
+			  ctx.lineTo(x, y);
+			}
+			ctx.stroke();
+		  }
 
-      // 4. 加入「深海」噪點/顆粒感
-      for (let i = 0; i < 5000; i++) {
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const size = Math.random() * 1.5;
-        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.03})`;
-        ctx.fillRect(x, y, size, size);
-      }
-    }
+		  // 4. 加入「深海」噪點/顆粒感
+		  for (let i = 0; i < 5000; i++) {
+			const x = Math.random() * canvas.width;
+			const y = Math.random() * canvas.height;
+			const size = Math.random() * 4;
+			ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.1})`;
+			ctx.fillRect(x, y, size, size);
+		  }
+		}
 
-    // 初始化與響應視窗縮放
-    render();
-    window.addEventListener('resize', render);
-  </script>
+		// 初始化與響應視窗縮放
+		render();
+		window.addEventListener('resize', render);
+	</script>
 </body>
 
 </html>
