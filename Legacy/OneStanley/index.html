@@ -33,7 +33,7 @@
     <meta name="theme-color" content="#712cf9" />
     <link href="product.css" rel="stylesheet" />
     <style>
-	 body{background-color: rgba(143,199,255,1.0); }
+	 body{background: linear-gradient(to bottom, rgba(255,255,255,1.0) 0%,rgba(143,199,255,1.0) 100%); }
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -128,7 +128,7 @@
         }
         
         .nav-btn {
-            text-decoration: none; color:rgb(206,226,7); font-size: 15px; font-weight: 100;
+            text-decoration: none; color:rgb(105,86,62); font-size: 15px; font-weight: 100;
             padding: 6px 12px;
             transition: 0.2s ease; background: transparent; font:"Helvetica Neue";
         }
@@ -138,26 +138,31 @@
 		  background-color: #002b1c; /* Your dark green */
   
 		  /* I adjusted the width/height to 250 to give the long text "room" to rotate */
-		  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='250' height='250'%3E%3Ctext x='50%25' y='50%25' font-family='Arial, sans-serif' font-size='18' fill='rgba(255,255,255,0.2)' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45 125 125)'%3ETO BE CONFIRMED%3C/text%3E%3C/svg%3E");
+		  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org' width='250' height='250'%3E%3Ctext x='50%25' y='50%25' font-family='Arial, sans-serif' font-size='18' fill='rgba(105,86,62,0.2)' text-anchor='middle' dominant-baseline='middle' transform='rotate(-45 125 125)'%3ETO BE CONFIRMED%3C/text%3E%3C/svg%3E");
 		  
 		  background-repeat: repeat;
 		  background-attachment: fixed;
 		  width: 100%;
 		}
 		
+		.navbar-toggler-icon { 
+			background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28105, 86, 62, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+		}
+}
+		
     </style>
   </head>
   <body>
 	
-    <header id="mainNav" class="navbar navbar-expand-lg navbar-dark" style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(255,255,255,1.0) 0%, rgba(255,255,255,1.0) 30%,rgba(12,12,6,0.0)) 100%; height:20vh; ">
+    <header id="mainNav" class="navbar navbar-expand-lg navbar-dark" style=" position:fixed ;z-index:2000;top:0;left:0;right:0;background: linear-gradient(to bottom, rgba(255,255,255,1.0) 0%, rgba(255,255,255,1.0) 50%,rgba(12,12,6,0.0)) 100%; height:20vh; ">
         
 		<div class="container-fluid d-flex align-items-center" style="display:flex">
 			<a class="navbar-brand" href="#">
-				<img src="OneStanley_logo.svg" alt="One Stanley Logo" style="width:100%;padding-top:10px;padding-left:10px;">
+				<img src="OneStanley_logo.svg" alt="One Stanley Logo" style="width:100%;padding-top:10px;padding-left:10px;padding-bottom:10px;">
 			</a>
 			<div class="container-fluid d-flex align-items-center">
-				<button class="navbar-toggler p-0 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-				  <span class="navbar-toggler-icon"></span>
+				<button class="navbar-toggler p-0 border-0" style="color:rgb(105,86,62);padding-top:100px;" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+				  <span class="navbar-toggler-icon" style="color:black"></span>
 				</button>
 
 				<!-- The Menu that expands to the right -->
@@ -170,76 +175,78 @@
 				  </ul>
 				</div>
 			</div>
-		<style >
-		/* 1. Force the container to be a row and stay next to the button */
-		.navbar-collapse.horizontal-menu {
-		  display: none; /* Hidden by default */
-		  flex-basis: auto; 
-		  flex-grow: 0;
-		  margin-left: 10px; /* Moves words closer to button */
-		}
+			<style >
+			/* 1. Force the container to be a row and stay next to the button */
+			.navbar-collapse.horizontal-menu {
+			  display: none; /* Hidden by default */
+			  flex-basis: auto; 
+			  flex-grow: 0;
+			  color: black;
+			  margin-left: 10px; /* Moves words closer to button */
+			}
 
-		/* 2. Remove Bootstrap's vertical 'slide' which causes the flicker */
-		.collapsing.horizontal-menu {
-		  display: flex !important; /* Forces same row during transition */
-		  height: auto !important; 
-		  width: 0;
-		  transition: width 0.3s ease, opacity 0.3s ease !important;
-		  overflow: hidden;
-		}
+			/* 2. Remove Bootstrap's vertical 'slide' which causes the flicker */
+			.collapsing.horizontal-menu {
+			  display: flex !important; /* Forces same row during transition */
+			  height: auto !important; 
+			  width: 0;
+			  transition: width 0.3s ease, opacity 0.3s ease !important;
+			  overflow: hidden;
+			}
 
-		/* 3. Open State Animation */
-		.collapse.horizontal-menu.show {
-		  display: flex !important;
-		  width: auto;
-		  animation: slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-		}
+			/* 3. Open State Animation */
+			.collapse.horizontal-menu.show {
+			  display: flex !important;
+			  width: auto;
+			  color: black;
+			  animation: slideOut 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+			}
 
-		/* 4. Close Animation (Slide back) */
-		/* Custom logic to reverse it when the 'show' class is removed */
-		.collapsing.horizontal-menu:not(.show) {
-		  animation: slideBack 0.3s ease-in forwards;
-		}
+			/* 4. Close Animation (Slide back) */
+			/* Custom logic to reverse it when the 'show' class is removed */
+			.collapsing.horizontal-menu:not(.show) {
+			  animation: slideBack 0.3s ease-in forwards;
+			}
 
-		@keyframes slideOut {
-		  from { opacity: 0; transform: translateX(-15px); }
-		  to { opacity: 1; transform: translateX(0); }
-		}
+			@keyframes slideOut {
+			  from { opacity: 0; transform: translateX(-15px); }
+			  to { opacity: 1; transform: translateX(0); }
+			}
 
-		@keyframes slideBack {
-		  from { opacity: 1; transform: translateX(0); }
-		  to { opacity: 0; transform: translateX(-15px); }
-		}
+			@keyframes slideBack {
+			  from { opacity: 1; transform: translateX(0); }
+			  to { opacity: 0; transform: translateX(-15px); }
+			}
 
-		/* 5. Clean up Nav Links */
-		.horizontal-menu .navbar-nav {
-		  flex-direction: row !important;
-		  gap: 1.5rem;
-		  white-space: nowrap;
-		}
+			/* 5. Clean up Nav Links */
+			.horizontal-menu .navbar-nav {
+			  flex-direction: row !important;
+			  gap: 1.5rem;
+			  white-space: nowrap;
+			}
 
-		</style>
-	  </div>
-	  
-    </header>
-	<div >
+			</style>
+		</div>
+	</header>
+	
+	<div>
 		<div class="lang-switcher nav-bottom " style="position:fixed;right:10px;top:30px;z-index:2001">
 			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('en')">EN</a>
 			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hans')">简体</a>
 			<a class="lang-switcher" style="white-space:nowrap;" onclick="setLanguage('zh-hant')">繁體</a>
 		</div>
 		<div class="lang-switcher nav-bottom " style="position:fixed;right:0px;top:60px;z-index:2001">
-		<a onclick="gtag_report_conversion()"
-            href="https://wa.me/85294539918?text=Can%20you%20tell%20me%20more%20about%20One%20Stanley?"
-		   id="whatsappBtn1"
-		   class="btn-whatsapp" target="_blank" style="
-			padding: 8px 16px;">
-			<img src="../../WhatsApp_Logo.png" alt="WA" width="20">
-			<span class="" style="font-size: clamp(1rem, 1.5vw, 2rem);"
-				  data-en="More Info" 
-				  data-zh-hans="欢迎查询" 
-				  data-zh-hant="歡迎查詢">歡迎查詢</span>
-		</a>
+			<a onclick="gtag_report_conversion()"
+				href="https://wa.me/85294539918?text=Can%20you%20tell%20me%20more%20about%20One%20Stanley?"
+			   id="whatsappBtn1"
+			   class="btn-whatsapp" target="_blank" style="
+				padding: 8px 16px;">
+				<img src="../../WhatsApp_Logo.png" alt="WA" width="20">
+				<span class="" style="font-size: clamp(1rem, 1.5vw, 2rem);"
+					  data-en="More Info" 
+					  data-zh-hans="欢迎查询" 
+					  data-zh-hant="歡迎查詢">歡迎查詢</span>
+			</a>
 		</div>
 	</div>
 	
@@ -320,7 +327,19 @@
 		<div
 			class="" 
 			style="top:0;width:100vw; 
-			background-image:url('New Project (12).jpg');z-index:0;min-height:80vh">
+			
+			background:linear-gradient(
+                    to bottom, 
+                    rgba(255, 0, 0, 0.0) 0%, 
+                    rgba(0, 0, 255, 0.0) 70%,
+					rgba(255,255 ,255,1.0)100%
+                ), 
+                url('New Project (12).jpg');
+            display: flex;
+			z-index:0;
+			min-height:80vh;
+			background-repeat: no-repeat;
+			background-size: cover;">
 			<div
 				class=" " 
 				style="top:0;width:100vw;
@@ -412,10 +431,10 @@
 		</div>
 	  <div id="gallery"></div>
       <div class="sticky-container d-md-flex flex-md-equal w-100 my-md-3 ps-md-3">
-        <section  class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(255,255,255,1.0) 0%, rgba(255,255,255,1.0) 50%,rgba(143,199,255, 1.0)) 100%;">
-		  <div class="container vh-100 align-items-center justify-content-center">
+        <section  class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(255,255,255,1.0) 0%, rgba(255,255,255,1.0) 50%,rgba(143,199,255,1.0)) 100%;">
+		  <div class=" vh-100 align-items-center justify-content-center">
 			
-			<h2 class="text-center mb-4" style=";padding-top:3%;color:white;font-weight: 100;top: 100px;" data-en="Property Gallery" data-zh-hant="相片集" data-zh-hans	="相片集">Property Gallery</h2>
+			<h2 class="text-center mb-4" style=";padding-top:3%;color:black;font-weight: 100;top: 100px;" data-en="Property Gallery" data-zh-hant="相片集" data-zh-hans	="相片集">Property Gallery</h2>
         
 			<style>
 			  /* Container for the main gallery */
@@ -477,19 +496,25 @@
 			<div class="gallery-container">
 			  <!-- Main Display -->
 			  <div class="main-image-wrapper">
-				<img id="mainDisplay" src="gallery123.jpg" alt="Gallery">
+				<img id="mainDisplay" style="margin-left:0;padding-left:0" src="gallery123.jpg" alt="Gallery">
 			  </div>
 
 			  <!-- Thumbnails -->
-			  <div class="thumb-row">
+			  <div class="thumb-row container">
 				<button class="thumb-btn active" onclick="changeImage('gallery123.jpg', this)">
 				  <img src="gallery123.jpg">
 				</button>
 				<button class="thumb-btn" onclick="changeImage('gallery126.jpg', this)">
 				  <img src="gallery126.jpg">
 				</button>
-				<button class="thumb-btn" onclick="gallery128.jpg', this)">
+				<button class="thumb-btn" onclick="changeImage('gallery128.jpg', this)">
 				  <img src="gallery128.jpg">
+				</button>
+				<button class="thumb-btn" onclick="changeImage('New Project (13).jpg', this)">
+				  <img src="New Project (13).jpg">
+				</button>
+				<button class="thumb-btn" onclick="changeImage('one_stanley_layout.png', this)">
+				  <img src="one_stanley_layout.png">
 				</button>
 				<!-- Add more thumbnails here -->
 			  </div>
@@ -720,7 +745,7 @@
 		</section>
 		
 		<div id="units" ></div>
-		<section class="fluid-container sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(22,31,5,1.0) 0%, rgba(22,31,5,1.0) 80%,rgba(67, 74, 7, 1.0)) 100%;">
+		<section class="fluid-container sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(22,31,5,1.0) 0%, rgba(22,31,5,1.0) 80%,rgba(67, 74, 7, 1.0) 100%);">
 		  <div class="container vh-100 align-items-center justify-content-center">
 			<div style="width:100%;text-align: center;">
 				<h2 class="text-center mb-4" style=";padding-top:3%;color:white;font-weight: 100;top: 100px;" data-en="Unit Types" data-zh-hans="戶型分佈" data-zh-hant="戶型分佈">Unit Types</h2>
@@ -742,18 +767,20 @@
 		</section>
 		
 		<div id="contactUs" ></div>
-		<section class="sticky-stack text-white" style="background: linear-gradient(to bottom, rgba(0,0,0,1.0) 0%, rgba(0,0,0,1.0) 50%,rgba(67, 74, 7, 1.0)) 100%;">
+		<section class="fluid-container sticky-stack " 
+		style="color: black; background: linear-gradient(to bottom, rgba(255,255,255,1.0) 0%, rgba(255,255,255 ,1.0) 50%,rgba(143,199,255,1.0) 100%);">
 			
-			<div style="height:10%"></div>
-			<div class="container d-flex flex-column vh-100 align-items-center justify-content-center v">
+			<div class="container ">
+				
 				<div style="width:100%;text-align: center;">
 					<div class="col-12">
-						<h2 class="text-center " style="margin-bottom:0;color:white;font-weight: 100;top: 100px;" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">聯絡我們</h2>
-						<p class="text-center mb-4" style="margin-top:0;color:white;font-weight: 100;" data-en="For more details from our professionals." data-zh-hans="专业团队将为您提供详尽资讯" data-zh-hant="專業團隊將為您提供詳盡資訊">專業團隊將為您提供詳盡資訊</p>
+						<h2 class="text-center " style="margin-bottom:0;font-weight: 100;top: 100px;" data-en="Contact Us" data-zh-hans="联络我们" data-zh-hant="聯絡我們">聯絡我們</h2>
+						<p class="text-center mb-4" style="margin-top:0;font-weight: 100;" data-en="For more details from our professionals." data-zh-hans="专业团队将为您提供详尽资讯" data-zh-hant="專業團隊將為您提供詳盡資訊">專業團隊將為您提供詳盡資訊</p>
 					</div>
 				</div>
+				
 				<div class="col-12" style="justify-content: center; align-items:center">
-					<p class="text-center " style=";margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp">透過 Whatsapp:</p>
+					<p class="text-center " style=";margin:5px;font-weight: 100;top: 100px;" data-en="via Whatsapp:" data-zh-hans="透过 Whatsapp:" data-zh-hant="透過 Whatsapp">透過 Whatsapp:</p>
 					<div style="display:flex;justify-content: center;">
 						<a onclick="gtag_report_conversion()" 
                 		href="https://wa.me/85294539918?text=你好，我想獲取 One Stanley 最新資訊。"
@@ -764,17 +791,16 @@
 						</a>
 					</div>
 				</div>
+				
 				<div style="height:20px"></div>
 				<div class="col-12" style="justify-content: center;">
-					<p class="text-center " style="margin:5px;color:white;font-weight: 100;top: 100px;" data-en="via WeChat:" data-zh-hans="透过微信:" data-zh-hant="透過微信:">透過微信:</p>
+					<p class="text-center " style="margin:5px;font-weight: 100;top: 100px;" data-en="via WeChat:" data-zh-hans="透过微信:" data-zh-hant="透過微信:">透過微信:</p>
 					<div style="display:flex;justify-content:center;"><a>
 						<img style="width:100px" src="../../wechat.jpg" alt="WA" width="20">
 					</a></div>
 				</div>
-				<div style="height:10%"></div>
-				<div class="logo mx-auto mb-4" style="margin:50px auto 30px auto;width:247px;max-width:30%;"><img src="../../TheSchedulerLegacy_b_logo.svg" alt="TheSchedulerLegacy" width="247" height="auto" style="width:100%;max-width:none;"></div>
+				<div class="logo mx-auto mb-4" style=";eft:0;margin:50px auto 30px auto;width:150px;max-width:30%;"><img src="../../TheSchedulerLegacy_b_logo.svg" alt="TheSchedulerLegacy" width="247" height="auto" style="width:100%;max-width:none;"></div>
 			</div>
-			
 		</section>
 		<style type="text/css">
 		.sticky-stack {
