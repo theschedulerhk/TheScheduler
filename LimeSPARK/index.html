@@ -873,7 +873,7 @@
           return true;
         }
 		// Logic to update the WhatsApp pre-filled text based on language
-		function updateWhatsAppLink(lang) {
+		/*function updateWhatsAppLink(lang) {
 			const btn = document.getElementById('whatsappBtn');
 			let message = "";
 
@@ -888,7 +888,7 @@
 			// Encode the message for the URL
 			const encodedMsg = encodeURIComponent(message);
 			btn.href = `https://wa.me/85294539918?text={encodedMsg}`;
-		}
+		}*/
 
 		// Wrap your existing setLanguage function to include this update
 		const originalSetLanguage = window.setLanguage;
@@ -897,7 +897,7 @@
 		};
 
 		function whatsappLangChange(lang){
-			const btn = document.getElementById('whatsappBtn');
+			//const btn = document.getElementById('whatsappBtn');
 			const btn1 = document.getElementById('whatsappBtn1');
 			const btn2 = document.getElementById('whatsappBtn2');
 			const btn3 = document.getElementById('whatsappBtn3');
@@ -907,7 +907,7 @@
 
 			console.log("the lang now is : "+lang);
 			if (lang === 'en') {
-				btn.setAttribute('href', waUrl1);
+				//btn.setAttribute('href', waUrl1);
 				btn1.setAttribute('href', waUrl1);
 				btn2.setAttribute('href', waUrl1);
 				btn3.setAttribute('href', waUrl1);
@@ -916,7 +916,7 @@
 				btn2.setAttribute('onclick', " _report_conversion('" + waUrl1 + "');");
 				btn3.setAttribute('onclick', " _report_conversion('" + waUrl1 + "');");*/
 			} else if (lang === 'zh-hans') {
-				btn.setAttribute('href', waUrl2);
+				//btn.setAttribute('href', waUrl2);
 				btn1.setAttribute('href', waUrl2);
 				btn2.setAttribute('href', waUrl2);
 				btn3.setAttribute('href', waUrl2);
@@ -925,7 +925,7 @@
 				btn2.setAttribute('onclick', " _report_conversion('" + waUrl2 + "');");
 				btn3.setAttribute('onclick', " _report_conversion('" + waUrl2 + "');");*/
 			} else if (lang === 'zh-hant') {
-				btn.setAttribute('href', waUrl3);
+				//btn.setAttribute('href', waUrl3);
 				btn1.setAttribute('href', waUrl3);
 				btn2.setAttribute('href', waUrl3);
 				btn3.setAttribute('href', waUrl3);
